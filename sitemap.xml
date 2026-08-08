@@ -7,75 +7,105 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.vividpartners.ca/team.html</loc>
+    <loc>https://www.vividpartners.ca/team</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.vividpartners.ca/portfolio.html</loc>
+    <loc>https://www.vividpartners.ca/portfolio</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.vividpartners.ca/partner-stories.html</loc>
+    <loc>https://www.vividpartners.ca/partner-stories</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.vividpartners.ca/careers.html</loc>
+    <loc>https://www.vividpartners.ca/careers</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.vividpartners.ca/resources.html</loc>
+    <loc>https://www.vividpartners.ca/resources</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.vividpartners.ca/contact.html</loc>
+    <loc>https://www.vividpartners.ca/contact</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.7</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://www.vividpartners.ca/team-mithun.html</loc>
+    <loc>https://www.vividpartners.ca/team-mithun</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.6</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://www.vividpartners.ca/team-abishan.html</loc>
+    <loc>https://www.vividpartners.ca/team-abishan</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.6</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://www.vividpartners.ca/team-vathusan.html</loc>
+    <loc>https://www.vividpartners.ca/team-vathusan</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.6</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://www.vividpartners.ca/team-rathusan.html</loc>
+    <loc>https://www.vividpartners.ca/team-rathusan</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.6</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://www.vividpartners.ca/privacy.html</loc>
+    <loc>https://www.vividpartners.ca/privacy</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://www.vividpartners.ca/terms.html</loc>
+    <loc>https://www.vividpartners.ca/terms</loc>
     <lastmod>2026-08-08</lastmod>
     <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vividpartners.ca/selling-your-business-in-ontario</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vividpartners.ca/what-is-a-holding-company</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vividpartners.ca/holding-company-vs-private-equity</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vividpartners.ca/how-small-businesses-are-valued</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.vividpartners.ca/succession-planning-canada</loc>
+    <lastmod>2026-08-08</lastmod>
+    <priority>0.7</priority>
     <changefreq>yearly</changefreq>
   </url>
 </urlset>

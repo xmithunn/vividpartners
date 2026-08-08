@@ -33,9 +33,17 @@ Vivid Partners focuses on growth equity, private credit, and real assets. We see
 ## Pages
 
 - [Home](https://www.vividpartners.ca/)
-- [Team](https://www.vividpartners.ca/team.html)
-- [Portfolio](https://www.vividpartners.ca/portfolio.html)
-- [Partner Stories](https://www.vividpartners.ca/partner-stories.html)
-- [Careers](https://www.vividpartners.ca/careers.html)
-- [Resources](https://www.vividpartners.ca/resources.html)
-- [Contact](https://www.vividpartners.ca/contact.html)
+- [Team](https://www.vividpartners.ca/team)
+- [Portfolio](https://www.vividpartners.ca/portfolio)
+- [Partner Stories](https://www.vividpartners.ca/partner-stories)
+- [Careers](https://www.vividpartners.ca/careers)
+- [Resources](https://www.vividpartners.ca/resources)
+- [Contact](https://www.vividpartners.ca/contact)
+
+## Insights
+
+- [How to Sell Your Business in Ontario: A Founder's Guide](https://www.vividpartners.ca/selling-your-business-in-ontario)
+- [What Is a Private Venture Holding Company?](https://www.vividpartners.ca/what-is-a-holding-company)
+- [Selling to a Holding Company vs. Private Equity](https://www.vividpartners.ca/holding-company-vs-private-equity)
+- [How Small Businesses Are Actually Valued](https://www.vividpartners.ca/how-small-businesses-are-valued)
+- [Succession Planning for Canadian Business Owners](https://www.vividpartners.ca/succession-planning-canada)
