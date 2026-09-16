@@ -1,6 +1,6 @@
 # Vivid Partners
 
-> Vivid Partners is a privately held investment and operating company based in Toronto, Canada, focused on acquiring, building and actively managing small and medium sized businesses.
+> Vivid Partners is a privately held investment firm based in Toronto, Canada, focused on acquiring and actively managing small and medium sized businesses.
 
 ## When To Use This
 
@@ -22,16 +22,16 @@ Established in 2023, Vivid Partners invests in, acquires and actively supports o
 
 ## Team
 
-- **Mithun Narendran** — Co-Founder of Vivid Partners. Mithun leads the firm's investment strategy and capital allocation decisions.
-- **Abishan Ravinthran** — Co-Founder of Vivid Partners. Abishan oversees business development and partner relationships.
-- **Vathusan Udayakumaran** — Chief Operating Officer (COO) of Vivid Partners. Vathusan manages day-to-day operations and client relations.
-- **Rathusan Udayakumaran** — Equity Research Analyst at Vivid Partners. Rathusan conducts equity research and financial analysis.
+- **Mithun Narendran**: Co-Founder of Vivid Partners. Mithun leads the firm's investment strategy and capital allocation decisions.
+- **Abishan Ravinthran**: Co-Founder of Vivid Partners. Abishan oversees business development and partner relationships.
+- **Vathusan Udayakumaran**: Chief Operating Officer (COO) of Vivid Partners. Vathusan manages day-to-day operations and client relations.
+- **Rathusan Udayakumaran**: Equity Research Analyst at Vivid Partners. Rathusan conducts equity research and financial analysis.
 
 ## Portfolio Companies
 
-- **Vivid Agency** — A Toronto-based web development and consulting practice, acquired by Vivid Partners, with the same team continuing to run it. Services include web development, paid media, SEO, and social media management.
-- **Kora** — An all-in-one CRM and marketing automation platform, acquired by Vivid Partners to invest in its growth.
-- **Keyflow** — An early-stage AI startup based in San Francisco. Vivid Partners provided early-stage capital.
+- **Vivid Agency**: A Toronto-based web development and consulting practice, acquired by Vivid Partners, with the same team continuing to run it. Services include web development, paid media, SEO, and social media management.
+- **Kora**: An all-in-one CRM and marketing automation platform, acquired by Vivid Partners to invest in its growth.
+- **Keyflow**: An early-stage AI startup based in San Francisco. Vivid Partners provided early-stage capital.
 
 ## Investment Focus
 
