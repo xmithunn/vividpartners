@@ -183,11 +183,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap">
 <style>
 :root {
-  --vp-navy-950: #07111F;
-  --vp-navy-900: #0B1B30;
+  --vp-navy-950: #132947;
+  --vp-navy-900: #132947;
   --vp-navy-800: #132947;
   --vp-navy-700: #1D3A60;
-  --vp-hero-blue: #02224D;
+  --vp-hero-blue: #132947;
   --vp-steel: #355782;
   --vp-mist: #B4C5DC;
   --vp-mist-soft: #8DA0BB;
@@ -343,6 +343,44 @@ a:hover { color: var(--vp-navy-900); }
 @media (max-width: 640px) {
   .vp-sector { flex: 1 1 calc(50% - 1px); padding: 20px 18px 24px; }
 }
+/* Phones: centred layout at a smaller scale */
+@media (max-width: 640px) {
+  :root {
+    --vp-gutter: 20px;
+    --vp-section: 48px;
+    --vp-fs-body: 0.9375rem;
+    --vp-fs-lede: 1rem;
+    --vp-fs-h3: 1.125rem;
+    --vp-fs-h2: 1.375rem;
+    --vp-fs-hero-sub: 1.0625rem;
+    --vp-fs-display: 1.875rem;
+    --vp-fs-card-title: 1.1875rem;
+    --vp-fs-statement: 1.1875rem;
+    --vp-fs-feature: 1.5rem;
+    --vp-fs-logo: 1.375rem;
+    --vp-fs-initials: 2rem;
+    --vp-fs-initials-lg: 2.5rem;
+    --vp-fs-note-title: 1.125rem;
+    --vp-fs-article: 1rem;
+    --vp-fs-article-lede: 1.125rem;
+    --vp-fs-article-h2: 1.3125rem;
+    --vp-fs-article-sub: 1.0625rem;
+    --vp-fs-article-title: 1.75rem;
+    --vp-fs-legal: 0.9375rem;
+    --vp-fs-legal-h2: 1.1875rem;
+    --vp-fs-legal-h3: 1rem;
+  }
+  header > * + *, header ~ * { text-align: center; }
+  header > * + * [style*="max-width"], header ~ * [style*="max-width"] { margin-left: auto !important; margin-right: auto !important; }
+  header > * + * [style*="display: flex"], header ~ * [style*="display: flex"], header ~ * dl { justify-content: center !important; }
+  header ~ * [style*="align-items: flex-start"], header ~ * [style*="align-items: flex-end"] { align-items: center !important; }
+  header ~ * img { margin-left: auto; margin-right: auto; }
+  header ~ * .vp-sector, header ~ * .vp-person { text-align: center; align-items: center; }
+  header ~ * .vp-section-head, header ~ * .vp-feature { justify-content: center; align-items: center; }
+  header ~ * .vp-arrow-link { justify-content: center; }
+  header ~ * .vp-tabs { flex-wrap: wrap; justify-content: center; gap: 0 16px; overflow: visible; margin-inline: 0; padding-inline: 0; }
+  .vp-article, .vp-legal { text-align: left; }
+}
 /* vp-shared:end */
 /* vp-main:start */
 .vp-center { text-align: center; }
@@ -355,9 +393,6 @@ a:hover { color: var(--vp-navy-900); }
 .vp-news-toggle { order: 3; flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin: -6px -10px -6px 0; padding: 0; background: none; border: 0; border-radius: 50%; color: var(--vp-text-muted); cursor: pointer; transition: color 0.2s ease, background-color 0.2s ease; }
 .vp-news-toggle:hover { color: var(--vp-navy-900); background: var(--vp-paper); }
 @media (max-width: 640px) {
-  .vp-center { text-align: left; }
-  .vp-center .vp-statement, .vp-center .vp-h2 { margin-left: 0 !important; }
-  .vp-stack { align-items: flex-start; }
   .vp-card-media { aspect-ratio: 16 / 9; }
   .vp-card-media svg { width: 96px; height: 96px; }
   .vp-news-toggle { order: 1; margin-left: auto; }
@@ -429,12 +464,7 @@ a:hover { color: var(--vp-navy-900); }
           <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease">Built by Entrepreneurs, for Entrepreneurs: Introducing Vivid Partners</p>
           <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease">Vivid Partners Launches with a Vision to Build and Own Businesses</p>
           <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease">Vivid Partners Launches in Toronto to Build, Acquire and Grow Businesses</p>
-    </div>
-    <button type="button" class="vp-news-toggle" aria-label="Pause news headlines">
-      <svg class="vp-icon-pause" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="3" y="2" width="2.5" height="10" rx="0.5" fill="currentColor"></rect><rect x="8.5" y="2" width="2.5" height="10" rx="0.5" fill="currentColor"></rect></svg>
-      <svg class="vp-icon-play" style="display: none" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2.5v9l7.5-4.5z" fill="currentColor"></path></svg>
-    </button>
-  </div>
+    </div>  </div>
 </div>
 <section id="approach" class="vp-bg-paper" aria-labelledby="vp-approach-title" style="padding-block: clamp(56px, 6vw, 88px) var(--vp-section)">
   <div class="vp-center" style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter)">
@@ -611,21 +641,13 @@ function vpReveal() {
 
 vpReveal();
 
-// Homepage news bar: rotates headlines every 4s, pauses on hover/focus or with the button.
+// Homepage news bar: rotates headlines every 4s, pauses on hover/focus, stays still with reduced motion.
 (function () {
   var box = document.getElementById('vp-news');
   if (!box) return;
   var items = box.querySelectorAll('.vp-news-link');
-  var btn = box.querySelector('.vp-news-toggle');
-  var pauseIcon = btn.querySelector('.vp-icon-pause');
-  var playIcon = btn.querySelector('.vp-icon-play');
   var index = 0, hover = false, paused = false;
   try { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) paused = true; } catch (e) {}
-  function sync() {
-    btn.setAttribute('aria-label', paused ? 'Play news headlines' : 'Pause news headlines');
-    pauseIcon.style.display = paused ? 'none' : '';
-    playIcon.style.display = paused ? '' : 'none';
-  }
   function show(n) {
     Array.prototype.forEach.call(items, function (el, k) {
       var on = k === n;
@@ -638,8 +660,6 @@ vpReveal();
   box.addEventListener('mouseleave', function () { hover = false; });
   box.addEventListener('focusin', function () { hover = true; });
   box.addEventListener('focusout', function () { hover = false; });
-  btn.addEventListener('click', function () { paused = !paused; sync(); });
-  sync();
   setInterval(function () {
     if (hover || paused) return;
     index = (index + 1) % items.length;

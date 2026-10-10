@@ -12,7 +12,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#02224D">
+<meta name="theme-color" content="#132947">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.vividpartners.ca/insights">
 <meta property="og:title" content="Insights · Vivid Partners">
@@ -51,11 +51,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap">
 <style>
 :root {
-  --vp-navy-950: #07111F;
-  --vp-navy-900: #0B1B30;
+  --vp-navy-950: #132947;
+  --vp-navy-900: #132947;
   --vp-navy-800: #132947;
   --vp-navy-700: #1D3A60;
-  --vp-hero-blue: #02224D;
+  --vp-hero-blue: #132947;
   --vp-steel: #355782;
   --vp-mist: #B4C5DC;
   --vp-mist-soft: #8DA0BB;
@@ -115,7 +115,7 @@ a:hover { color: var(--vp-navy-900); }
 .vp-c-paper { color: var(--vp-paper); }
 .vp-c-mist { color: var(--vp-mist); }
 .vp-c-muted { color: var(--vp-text-muted); }
-.vp-hero-bg { background-color: var(--vp-hero-blue); background-image: url(/hero.webp); background-size: cover; background-position: center 30%; color: var(--vp-paper); }
+.vp-hero-bg { background-color: var(--vp-navy-800); color: var(--vp-paper); }
 .vp-bg-navy { background: var(--vp-navy-900); color: var(--vp-paper); }
 .vp-bg-deep { background: var(--vp-navy-950); color: var(--vp-mist-soft); }
 .vp-bg-paper { background: var(--vp-paper); color: var(--vp-text); }
@@ -203,6 +203,44 @@ a:hover { color: var(--vp-navy-900); }
 }
 @media (max-width: 640px) {
   .vp-sector { flex: 1 1 calc(50% - 1px); padding: 20px 18px 24px; }
+}
+/* Phones: centred layout at a smaller scale */
+@media (max-width: 640px) {
+  :root {
+    --vp-gutter: 20px;
+    --vp-section: 48px;
+    --vp-fs-body: 0.9375rem;
+    --vp-fs-lede: 1rem;
+    --vp-fs-h3: 1.125rem;
+    --vp-fs-h2: 1.375rem;
+    --vp-fs-hero-sub: 1.0625rem;
+    --vp-fs-display: 1.875rem;
+    --vp-fs-card-title: 1.1875rem;
+    --vp-fs-statement: 1.1875rem;
+    --vp-fs-feature: 1.5rem;
+    --vp-fs-logo: 1.375rem;
+    --vp-fs-initials: 2rem;
+    --vp-fs-initials-lg: 2.5rem;
+    --vp-fs-note-title: 1.125rem;
+    --vp-fs-article: 1rem;
+    --vp-fs-article-lede: 1.125rem;
+    --vp-fs-article-h2: 1.3125rem;
+    --vp-fs-article-sub: 1.0625rem;
+    --vp-fs-article-title: 1.75rem;
+    --vp-fs-legal: 0.9375rem;
+    --vp-fs-legal-h2: 1.1875rem;
+    --vp-fs-legal-h3: 1rem;
+  }
+  header > * + *, header ~ * { text-align: center; }
+  header > * + * [style*="max-width"], header ~ * [style*="max-width"] { margin-left: auto !important; margin-right: auto !important; }
+  header > * + * [style*="display: flex"], header ~ * [style*="display: flex"], header ~ * dl { justify-content: center !important; }
+  header ~ * [style*="align-items: flex-start"], header ~ * [style*="align-items: flex-end"] { align-items: center !important; }
+  header ~ * img { margin-left: auto; margin-right: auto; }
+  header ~ * .vp-sector, header ~ * .vp-person { text-align: center; align-items: center; }
+  header ~ * .vp-section-head, header ~ * .vp-feature { justify-content: center; align-items: center; }
+  header ~ * .vp-arrow-link { justify-content: center; }
+  header ~ * .vp-tabs { flex-wrap: wrap; justify-content: center; gap: 0 16px; overflow: visible; margin-inline: 0; padding-inline: 0; }
+  .vp-article, .vp-legal { text-align: left; }
 }
 /* vp-shared:end */
 @media (prefers-reduced-motion: reduce) {
