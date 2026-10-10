@@ -1,0 +1,9 @@
+{
+  "name": "vividpartners-site",
+  "private": true,
+  "type": "module",
+  "description": "Static marketing site for Vivid Partners. No build step: Vercel serves the repository root as-is. package.json exists only so Vercel can install the dependency used by middleware.js (Accept: text/markdown content negotiation, Vary headers, and agent-friendly 404s).",
+  "dependencies": {
+    "@vercel/functions": "^3.9.5"
+  }
+}

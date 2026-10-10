@@ -1,0 +1,47 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "outputDirectory": ".",
+  "redirects": [
+    {
+      "source": "/careers",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/partner-stories",
+      "destination": "/portfolio",
+      "permanent": true
+    },
+    {
+      "source": "/resources",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/team-mithun",
+      "destination": "/team",
+      "permanent": true
+    },
+    {
+      "source": "/team-abishan",
+      "destination": "/team",
+      "permanent": true
+    },
+    {
+      "source": "/team-vathusan",
+      "destination": "/team",
+      "permanent": true
+    },
+    {
+      "source": "/team-rathusan",
+      "destination": "/team",
+      "permanent": true
+    }
+  ]
+}
