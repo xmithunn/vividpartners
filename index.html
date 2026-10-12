@@ -332,6 +332,7 @@ a:hover { color: var(--vp-navy-900); }
 .vp-menu[open] .vp-menu-icon::after { top: 6px; transform: rotate(-45deg); }
 .vp-menu-panel { position: absolute; left: 0; right: 0; top: 100%; z-index: 30; display: flex; flex-direction: column; padding: 4px var(--vp-gutter) 28px; background: var(--vp-navy-950); border-top: 1px solid var(--vp-line-dark); box-shadow: 0 24px 40px rgba(7, 17, 31, 0.35); }
 .vp-menu[open] .vp-menu-panel { animation: vp-drop 0.25s ease both; }
+.vp-menu:not([open]) .vp-menu-panel { display: none; }
 .vp-menu-panel .vp-nav-link { min-height: 56px; font-size: 1.25rem; border-bottom: 1px solid var(--vp-line-dark); background-image: none; }
 .vp-menu-panel .vp-nav-link[aria-current="page"] { font-weight: 500; }
 .vp-menu-panel .vp-btn { margin-top: 24px; min-height: 48px; }
@@ -347,27 +348,27 @@ a:hover { color: var(--vp-navy-900); }
 @media (max-width: 640px) {
   :root {
     --vp-gutter: 20px;
-    --vp-section: 48px;
+    --vp-section: 40px;
     --vp-fs-body: 0.9375rem;
-    --vp-fs-lede: 1rem;
-    --vp-fs-h3: 1.125rem;
-    --vp-fs-h2: 1.375rem;
-    --vp-fs-hero-sub: 1.0625rem;
-    --vp-fs-display: 1.875rem;
-    --vp-fs-card-title: 1.1875rem;
-    --vp-fs-statement: 1.1875rem;
-    --vp-fs-feature: 1.5rem;
-    --vp-fs-logo: 1.375rem;
-    --vp-fs-initials: 2rem;
-    --vp-fs-initials-lg: 2.5rem;
-    --vp-fs-note-title: 1.125rem;
-    --vp-fs-article: 1rem;
-    --vp-fs-article-lede: 1.125rem;
-    --vp-fs-article-h2: 1.3125rem;
-    --vp-fs-article-sub: 1.0625rem;
-    --vp-fs-article-title: 1.75rem;
+    --vp-fs-lede: 0.9375rem;
+    --vp-fs-h3: 1.0625rem;
+    --vp-fs-h2: 1.25rem;
+    --vp-fs-hero-sub: 1rem;
+    --vp-fs-display: 1.625rem;
+    --vp-fs-card-title: 1.0625rem;
+    --vp-fs-statement: 1.0625rem;
+    --vp-fs-feature: 1.3125rem;
+    --vp-fs-logo: 1.25rem;
+    --vp-fs-initials: 1.75rem;
+    --vp-fs-initials-lg: 2.25rem;
+    --vp-fs-note-title: 1.0625rem;
+    --vp-fs-article: 0.9375rem;
+    --vp-fs-article-lede: 1.0625rem;
+    --vp-fs-article-h2: 1.1875rem;
+    --vp-fs-article-sub: 1rem;
+    --vp-fs-article-title: 1.5rem;
     --vp-fs-legal: 0.9375rem;
-    --vp-fs-legal-h2: 1.1875rem;
+    --vp-fs-legal-h2: 1.125rem;
     --vp-fs-legal-h3: 1rem;
   }
   header > * + *, header ~ * { text-align: center; }
@@ -380,6 +381,8 @@ a:hover { color: var(--vp-navy-900); }
   header ~ * .vp-arrow-link { justify-content: center; }
   header ~ * .vp-tabs { flex-wrap: wrap; justify-content: center; gap: 0 16px; overflow: visible; margin-inline: 0; padding-inline: 0; }
   .vp-article, .vp-legal { text-align: left; }
+  footer nav[aria-label="Footer"] { grid-template-columns: 1fr 1fr !important; }
+  footer nav[aria-label="Footer"] > div:last-child { grid-column: 1 / -1; }
 }
 /* vp-shared:end */
 /* vp-main:start */
@@ -390,15 +393,31 @@ a:hover { color: var(--vp-navy-900); }
 #insights article:hover .vp-card-media svg { transform: translateY(-4px) scale(1.04); }
 .vp-sector { transition: background-color 0.3s ease; }
 .vp-news-link { margin: 0; }
-.vp-news-toggle { order: 3; flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin: -6px -10px -6px 0; padding: 0; background: none; border: 0; border-radius: 50%; color: var(--vp-text-muted); cursor: pointer; transition: color 0.2s ease, background-color 0.2s ease; }
-.vp-news-toggle:hover { color: var(--vp-navy-900); background: var(--vp-paper); }
+/* Scroll-lit statement: dim until JS lights each word */
+.vp-js-words .vp-scroll-words .vp-w { opacity: 0.15; transition: opacity 0.35s ease; }
+.vp-js-words .vp-scroll-words .vp-w[data-on] { opacity: 1; }
 @media (max-width: 640px) {
   .vp-card-media { aspect-ratio: 16 / 9; }
   .vp-card-media svg { width: 96px; height: 96px; }
-  .vp-news-toggle { order: 1; margin-left: auto; }
-  .vp-news-grid { order: 2; }
+  /* News bar: one slim row on phones, like desktop */
+  #main .vp-news-bar { flex-wrap: nowrap !important; justify-content: flex-start !important; gap: 0 16px !important; text-align: left; }
+  #main .vp-news-bar .vp-eyebrow { flex: none; }
+  #main .vp-news-grid { flex: 1 1 0 !important; max-width: none; margin-inline: 0; grid-template-columns: minmax(0, 1fr); }
+  #main .vp-news-link { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 }
 /* vp-main:end */
+/* vp-phone2:start */
+.vp-logo { display: block; width: clamp(158px, 12.9vw, 198px); height: auto; max-width: none; }
+.vp-logo-link { flex: none; }
+@media (max-width: 640px) {
+  .vp-hero-bg > div:first-child { padding-top: 12px !important; padding-bottom: 12px !important; }
+  .vp-hero-bg > div:nth-child(2), .vp-hero-bg > section > div { padding-top: 28px !important; padding-bottom: 44px !important; }
+  .vp-logo { width: 140px; }
+  .vp-logo-link { padding-top: 12px !important; padding-bottom: 12px !important; }
+  .vp-news-grid { flex: 0 1 300px !important; max-width: 300px; margin-inline: auto; }
+  .vp-news-link { font-size: 0.875rem; line-height: 1.45; padding: 4px 0; }
+}
+/* vp-phone2:end */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
 }
@@ -411,8 +430,8 @@ a:hover { color: var(--vp-navy-900); }
 <header class="vp-hero-bg">
   <div style="position: relative; max-width: var(--vp-container); margin: 0 auto; padding: 22px var(--vp-gutter); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 40px">
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 56px">
-      <a href="#top" style="display: inline-flex; padding: 10px 0">
-        <img src="/vivid-partners-logo.png" alt="Vivid Partners" width="800" height="121" style="height: clamp(24px, 1.95vw, 30px); width: auto; display: block">
+      <a class="vp-logo-link" href="#top" style="display: inline-flex; padding: 10px 0">
+        <img class="vp-logo" src="/vivid-partners-logo.png" alt="Vivid Partners" width="800" height="121">
       </a>
       <nav class="vp-nav-desktop" aria-label="Primary" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 32px">
         <a class="vp-nav-link" href="/portfolio">Portfolio</a>
@@ -451,7 +470,7 @@ a:hover { color: var(--vp-navy-900); }
 <main id="main">
 
 <div class="vp-bg-paper-2 vp-rule-bottom" id="vp-news">
-  <div style="max-width: var(--vp-container); margin: 0 auto; padding: 14px var(--vp-gutter); display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px">
+  <div class="vp-news-bar" style="max-width: var(--vp-container); margin: 0 auto; padding: 14px var(--vp-gutter); display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px">
     <p class="vp-eyebrow vp-c-muted">News</p>
     <div class="vp-news-grid" aria-live="off" style="flex: 1 1 360px; min-width: 0; display: grid">
       <p class="vp-news-link" aria-hidden="false" style="grid-area: 1 / 1; opacity: 1; transition: opacity 450ms ease 450ms">Vivid Partners Acquires Keyflow, a Productivity Software Startup Based in San Francisco</p>
@@ -469,7 +488,7 @@ a:hover { color: var(--vp-navy-900); }
 <section id="approach" class="vp-bg-paper" aria-labelledby="vp-approach-title" style="padding-block: clamp(56px, 6vw, 88px) var(--vp-section)">
   <div class="vp-center" style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter)">
     <h2 id="vp-approach-title" class="vp-eyebrow">Our focus</h2>
-    <p class="vp-statement" style="margin: 24px auto 0; max-width: 46ch">We back founders and talented teams at every stage of growth, from startups to established industry leaders. Our work spans four sectors, with portfolio companies based in Toronto, San Francisco and London.</p>
+    <p class="vp-statement vp-scroll-words" style="margin: 24px auto 0; max-width: 46ch"><span class="vp-w">We</span> <span class="vp-w">back</span> <span class="vp-w">founders</span> <span class="vp-w">and</span> <span class="vp-w">talented</span> <span class="vp-w">teams</span> <span class="vp-w">at</span> <span class="vp-w">every</span> <span class="vp-w">stage</span> <span class="vp-w">of</span> <span class="vp-w">growth,</span> <span class="vp-w">from</span> <span class="vp-w">startups</span> <span class="vp-w">to</span> <span class="vp-w">established</span> <span class="vp-w">industry</span> <span class="vp-w">leaders.</span> <span class="vp-w">Our</span> <span class="vp-w">work</span> <span class="vp-w">spans</span> <span class="vp-w">four</span> <span class="vp-w">sectors,</span> <span class="vp-w">with</span> <span class="vp-w">portfolio</span> <span class="vp-w">companies</span> <span class="vp-w">based</span> <span class="vp-w">in</span> <span class="vp-w">Toronto,</span> <span class="vp-w">San</span> <span class="vp-w">Francisco</span> <span class="vp-w">and</span> <span class="vp-w">London.</span></p>
     <div class="vp-band" style="margin-top: clamp(40px, 5vw, 64px)">
       <div class="vp-sector">
         <span class="vp-sector-name">Financial Services</span>
@@ -568,7 +587,7 @@ a:hover { color: var(--vp-navy-900); }
   <div style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter)">
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 48px 64px">
       <div style="flex: 1 1 260px; max-width: 340px">
-        <img src="/vivid-partners-logo.png" alt="Vivid Partners" width="800" height="121" loading="lazy" style="height: 26px; width: auto; display: block; margin-bottom: 20px">
+        <img src="/vivid-partners-logo.png" alt="Vivid Partners" width="800" height="121" style="height: 26px; width: auto; display: block; margin-bottom: 20px">
       </div>
       <nav aria-label="Footer" style="flex: 999 1 520px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 32px">
         <div>
@@ -597,7 +616,7 @@ a:hover { color: var(--vp-navy-900); }
       </nav>
     </div>
     <div class="vp-rule-top-dark" style="margin-top: 48px; padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 32px">
-      <p class="vp-small">© 2027 Vivid Capital Partners. All rights reserved.</p>
+      <p class="vp-small">© 2027 Vivid Partners. All rights reserved.</p>
       <ul class="vp-list-reset" style="display: flex; flex-wrap: wrap; gap: 0 24px">
         <li><a class="vp-foot-link" href="/privacy">Privacy</a></li>
         <li><a class="vp-foot-link" href="/terms">Terms</a></li>
@@ -639,7 +658,41 @@ function vpReveal() {
   }
 }
 
+// "Our focus" statement: words light up one by one as the paragraph scrolls up the screen. Skipped for reduced motion.
+function vpScrollWords() {
+  try {
+    if (typeof window === 'undefined') return null;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+    var el = document.querySelector('.vp-scroll-words');
+    if (!el) return null;
+    var words = el.querySelectorAll('.vp-w');
+    var lit = -1, ticking = false;
+    function update() {
+      ticking = false;
+      var r = el.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var p = (vh * 0.75 - r.top) / (vh * 0.4 + r.height);
+      var n = Math.round(Math.max(0, Math.min(1, p)) * words.length);
+      if (n === lit) return;
+      lit = n;
+      for (var i = 0; i < words.length; i++) {
+        if (i < n) words[i].setAttribute('data-on', ''); else words[i].removeAttribute('data-on');
+      }
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    document.documentElement.classList.add('vp-js-words');
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return function () { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
+  } catch (err) {
+    return null;
+  }
+}
+
 vpReveal();
+
+vpScrollWords();
 
 // Homepage news bar: rotates headlines every 4s, pauses on hover/focus, stays still with reduced motion.
 (function () {

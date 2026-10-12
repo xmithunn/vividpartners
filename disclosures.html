@@ -163,6 +163,7 @@ a:hover { color: var(--vp-navy-900); }
 .vp-menu[open] .vp-menu-icon::after { top: 6px; transform: rotate(-45deg); }
 .vp-menu-panel { position: absolute; left: 0; right: 0; top: 100%; z-index: 30; display: flex; flex-direction: column; padding: 4px var(--vp-gutter) 28px; background: var(--vp-navy-950); border-top: 1px solid var(--vp-line-dark); box-shadow: 0 24px 40px rgba(7, 17, 31, 0.35); }
 .vp-menu[open] .vp-menu-panel { animation: vp-drop 0.25s ease both; }
+.vp-menu:not([open]) .vp-menu-panel { display: none; }
 .vp-menu-panel .vp-nav-link { min-height: 56px; font-size: 1.25rem; border-bottom: 1px solid var(--vp-line-dark); background-image: none; }
 .vp-menu-panel .vp-nav-link[aria-current="page"] { font-weight: 500; }
 .vp-menu-panel .vp-btn { margin-top: 24px; min-height: 48px; }
@@ -178,27 +179,27 @@ a:hover { color: var(--vp-navy-900); }
 @media (max-width: 640px) {
   :root {
     --vp-gutter: 20px;
-    --vp-section: 48px;
+    --vp-section: 40px;
     --vp-fs-body: 0.9375rem;
-    --vp-fs-lede: 1rem;
-    --vp-fs-h3: 1.125rem;
-    --vp-fs-h2: 1.375rem;
-    --vp-fs-hero-sub: 1.0625rem;
-    --vp-fs-display: 1.875rem;
-    --vp-fs-card-title: 1.1875rem;
-    --vp-fs-statement: 1.1875rem;
-    --vp-fs-feature: 1.5rem;
-    --vp-fs-logo: 1.375rem;
-    --vp-fs-initials: 2rem;
-    --vp-fs-initials-lg: 2.5rem;
-    --vp-fs-note-title: 1.125rem;
-    --vp-fs-article: 1rem;
-    --vp-fs-article-lede: 1.125rem;
-    --vp-fs-article-h2: 1.3125rem;
-    --vp-fs-article-sub: 1.0625rem;
-    --vp-fs-article-title: 1.75rem;
+    --vp-fs-lede: 0.9375rem;
+    --vp-fs-h3: 1.0625rem;
+    --vp-fs-h2: 1.25rem;
+    --vp-fs-hero-sub: 1rem;
+    --vp-fs-display: 1.625rem;
+    --vp-fs-card-title: 1.0625rem;
+    --vp-fs-statement: 1.0625rem;
+    --vp-fs-feature: 1.3125rem;
+    --vp-fs-logo: 1.25rem;
+    --vp-fs-initials: 1.75rem;
+    --vp-fs-initials-lg: 2.25rem;
+    --vp-fs-note-title: 1.0625rem;
+    --vp-fs-article: 0.9375rem;
+    --vp-fs-article-lede: 1.0625rem;
+    --vp-fs-article-h2: 1.1875rem;
+    --vp-fs-article-sub: 1rem;
+    --vp-fs-article-title: 1.5rem;
     --vp-fs-legal: 0.9375rem;
-    --vp-fs-legal-h2: 1.1875rem;
+    --vp-fs-legal-h2: 1.125rem;
     --vp-fs-legal-h3: 1rem;
   }
   header > * + *, header ~ * { text-align: center; }
@@ -211,8 +212,22 @@ a:hover { color: var(--vp-navy-900); }
   header ~ * .vp-arrow-link { justify-content: center; }
   header ~ * .vp-tabs { flex-wrap: wrap; justify-content: center; gap: 0 16px; overflow: visible; margin-inline: 0; padding-inline: 0; }
   .vp-article, .vp-legal { text-align: left; }
+  footer nav[aria-label="Footer"] { grid-template-columns: 1fr 1fr !important; }
+  footer nav[aria-label="Footer"] > div:last-child { grid-column: 1 / -1; }
 }
 /* vp-shared:end */
+/* vp-phone2:start */
+.vp-logo { display: block; width: clamp(158px, 12.9vw, 198px); height: auto; max-width: none; }
+.vp-logo-link { flex: none; }
+@media (max-width: 640px) {
+  .vp-hero-bg > div:first-child { padding-top: 12px !important; padding-bottom: 12px !important; }
+  .vp-hero-bg > div:nth-child(2), .vp-hero-bg > section > div { padding-top: 28px !important; padding-bottom: 44px !important; }
+  .vp-logo { width: 140px; }
+  .vp-logo-link { padding-top: 12px !important; padding-bottom: 12px !important; }
+  .vp-news-grid { flex: 0 1 300px !important; max-width: 300px; margin-inline: auto; }
+  .vp-news-link { font-size: 0.875rem; line-height: 1.45; padding: 4px 0; }
+}
+/* vp-phone2:end */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
 }
@@ -225,8 +240,8 @@ a:hover { color: var(--vp-navy-900); }
 <header class="vp-hero-bg">
   <div style="position: relative; max-width: var(--vp-container); margin: 0 auto; padding: 22px var(--vp-gutter); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 40px">
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 56px">
-      <a href="/" style="display: inline-flex; padding: 10px 0">
-        <img src="/vivid-partners-logo.png" alt="Vivid Partners home" width="800" height="121" style="height: clamp(24px, 1.95vw, 30px); width: auto; display: block">
+      <a class="vp-logo-link" href="/" style="display: inline-flex; padding: 10px 0">
+        <img class="vp-logo" src="/vivid-partners-logo.png" alt="Vivid Partners home" width="800" height="121">
       </a>
       <nav class="vp-nav-desktop" aria-label="Primary" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 32px">
         <a class="vp-nav-link" href="/portfolio">Portfolio</a>
@@ -292,7 +307,7 @@ a:hover { color: var(--vp-navy-900); }
   <div style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter)">
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 48px 64px">
       <div style="flex: 1 1 260px; max-width: 340px">
-        <img src="/vivid-partners-logo.png" alt="Vivid Partners" width="800" height="121" loading="lazy" style="height: 26px; width: auto; display: block">
+        <img src="/vivid-partners-logo.png" alt="Vivid Partners" width="800" height="121" style="height: 26px; width: auto; display: block">
       </div>
       <nav aria-label="Footer" style="flex: 999 1 520px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 32px">
         <div>
@@ -321,7 +336,7 @@ a:hover { color: var(--vp-navy-900); }
       </nav>
     </div>
     <div class="vp-rule-top-dark" style="margin-top: 48px; padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 32px">
-      <p class="vp-small">© 2027 Vivid Capital Partners. All rights reserved.</p>
+      <p class="vp-small">© 2027 Vivid Partners. All rights reserved.</p>
       <ul class="vp-list-reset" style="display: flex; flex-wrap: wrap; gap: 0 24px">
         <li><a class="vp-foot-link" href="/privacy">Privacy</a></li>
         <li><a class="vp-foot-link" href="/terms">Terms</a></li>
