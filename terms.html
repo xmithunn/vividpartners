@@ -144,21 +144,21 @@ a:hover { color: var(--vp-navy-900); }
 
 /* vp-shared:start */
 /* Motion */
-@keyframes vp-rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@keyframes vp-rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
 @keyframes vp-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes vp-drop { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
-.vp-hero-bg > div:first-child { animation: vp-fade 0.7s ease both; }
-.vp-hero-in > * { animation: vp-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: 0.1s; }
-.vp-hero-in > :nth-child(2) { animation-delay: 0.2s; }
-.vp-hero-in > :nth-child(3) { animation-delay: 0.3s; }
-.vp-hero-in > :nth-child(4) { animation-delay: 0.4s; }
-.vp-js-reveal [data-vp-r] { opacity: 0; transform: translateY(18px); transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.vp-hero-bg > div:first-child { animation: vp-fade 0.4s ease both; }
+.vp-hero-in > * { animation: vp-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: 0.05s; }
+.vp-hero-in > :nth-child(2) { animation-delay: 0.13s; }
+.vp-hero-in > :nth-child(3) { animation-delay: 0.21s; }
+.vp-hero-in > :nth-child(4) { animation-delay: 0.29s; }
+.vp-js-reveal [data-vp-r] { opacity: 0; transform: translateY(40px); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
 .vp-js-reveal [data-vp-r][data-vp-in] { opacity: 1; transform: none; }
-.vp-js-reveal [data-vp-r="i"]:nth-child(2) { transition-delay: 0.09s; }
-.vp-js-reveal [data-vp-r="i"]:nth-child(3) { transition-delay: 0.18s; }
-.vp-js-reveal [data-vp-r="i"]:nth-child(4) { transition-delay: 0.27s; }
-.vp-js-reveal [data-vp-r="i"]:nth-child(5) { transition-delay: 0.36s; }
-.vp-js-reveal [data-vp-r="i"]:nth-child(n+6) { transition-delay: 0.45s; }
+.vp-js-reveal [data-vp-r="i"]:nth-child(2) { transition-delay: 0.06s; }
+.vp-js-reveal [data-vp-r="i"]:nth-child(3) { transition-delay: 0.12s; }
+.vp-js-reveal [data-vp-r="i"]:nth-child(4) { transition-delay: 0.18s; }
+.vp-js-reveal [data-vp-r="i"]:nth-child(5) { transition-delay: 0.24s; }
+.vp-js-reveal [data-vp-r="i"]:nth-child(n+6) { transition-delay: 0.3s; }
 .vp-nav-link { background-image: linear-gradient(currentColor, currentColor); background-repeat: no-repeat; background-position: 0 calc(50% + 0.8em); background-size: 0% 1px; transition: color 0.2s ease, background-size 0.3s ease; }
 .vp-nav-link:hover, .vp-nav-link[aria-current="page"] { background-size: 100% 1px; }
 .vp-btn { transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease; }
@@ -245,6 +245,22 @@ a:hover { color: var(--vp-navy-900); }
 /* Keep the header (and the phone menu dropping out of it) above everything that follows on the page */
 .vp-hero-bg > div:first-child { position: relative; z-index: 50; }
 /* vp-menu-fix:end */
+/* vp-vt:start */
+/* Page-to-page transitions: the new page fades and lifts in while the header stays put (supporting browsers). */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  .vp-hero-bg > div:first-child { view-transition-name: vp-header; }
+  ::view-transition-old(root) { animation: vp-vt-out 0.18s ease-in both; }
+  ::view-transition-new(root) { animation: vp-vt-in 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  ::view-transition-group(vp-header) { animation-duration: 0.2s; }
+}
+@keyframes vp-vt-out { to { opacity: 0; } }
+@keyframes vp-vt-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+/* vp-vt:end */
+/* vp-smooth:start */
+/* Smooth scrolling drives the scroll position itself, so the browser's own smoothing must stay off */
+html.vp-smooth { scroll-behavior: auto !important; }
+/* vp-smooth:end */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
 }
@@ -281,7 +297,7 @@ a:hover { color: var(--vp-navy-900); }
       </nav>
     </details>
   </div>
-  <div style="max-width: calc(var(--vp-article-width) + 2 * var(--vp-gutter)); margin: 0 auto; padding: clamp(32px, 4vw, 64px) var(--vp-gutter) clamp(48px, 5.5vw, 80px)">
+  <div class="vp-hero-in" style="max-width: calc(var(--vp-article-width) + 2 * var(--vp-gutter)); margin: 0 auto; padding: clamp(32px, 4vw, 64px) var(--vp-gutter) clamp(48px, 5.5vw, 80px)">
     <h1 class="vp-article-title">Terms of Use</h1>
     <p class="vp-article-sub" style="margin-top: 16px">Last revised February 5, 2026.</p>
   </div>
@@ -382,6 +398,100 @@ a:hover { color: var(--vp-navy-900); }
 </footer>
 </div>
 <script>
+function vpSmooth() {
+  try {
+    if (typeof window === 'undefined') return null;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return null;
+    var LERP = 0.12, root = document.documentElement;
+    var current = window.scrollY, target = current, running = false, ours = false;
+    function maxScroll() { return Math.max(0, root.scrollHeight - window.innerHeight); }
+    function scrollsInside(el) {
+      for (; el && el !== document.body && el !== root; el = el.parentElement) {
+        var cs = getComputedStyle(el);
+        if (/(auto|scroll)/.test(cs.overflowY) && el.scrollHeight > el.clientHeight + 1) return true;
+        if (el.hasAttribute && el.hasAttribute('data-lenis-prevent')) return true;
+      }
+      return false;
+    }
+    function step() {
+      current += (target - current) * LERP;
+      if (Math.abs(target - current) < 0.5) current = target;
+      ours = true;
+      window.scrollTo(0, current);
+      if (current !== target) requestAnimationFrame(step); else running = false;
+    }
+    function onWheel(e) {
+      if (e.ctrlKey || e.defaultPrevented) return;
+      if (maxScroll() < 8) return;
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+      if (scrollsInside(e.target)) return;
+      var dy = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight : 1);
+      e.preventDefault();
+      if (!running) { current = window.scrollY; target = current; }
+      target = Math.max(0, Math.min(maxScroll(), target + dy));
+      if (!running) { running = true; requestAnimationFrame(step); }
+    }
+    function onScroll() {
+      if (ours) { ours = false; return; }
+      if (!running) { current = target = window.scrollY; }
+    }
+    root.classList.add('vp-smooth');
+    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return function () {
+      window.removeEventListener('wheel', onWheel); window.removeEventListener('scroll', onScroll);
+      root.classList.remove('vp-smooth');
+    };
+  } catch (err) {
+    return null;
+  }
+}
+
+function vpReveal() {
+  try {
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return null;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+    var targets = [];
+    document.querySelectorAll('main > section > div, main > div').forEach(function (box) {
+      if (box.closest('[hidden]')) return;
+      Array.prototype.forEach.call(box.children, function (el) {
+        var kids = Array.prototype.slice.call(el.children);
+        var group = el.tagName === 'UL' || el.tagName === 'OL' || (kids.length > 1 && getComputedStyle(el).display === 'grid');
+        if (group) kids.forEach(function (k) { k.setAttribute('data-vp-r', 'i'); targets.push(k); });
+        else { el.setAttribute('data-vp-r', '1'); targets.push(el); }
+      });
+    });
+    var pending = targets.slice(), ticking = false;
+    function reveal(el) {
+      var k = pending.indexOf(el);
+      if (k === -1) return;
+      pending.splice(k, 1);
+      io.unobserve(el);
+      el.setAttribute('data-vp-in', '');
+      setTimeout(function () { el.removeAttribute('data-vp-r'); el.removeAttribute('data-vp-in'); }, 1200);
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) { if (entry.isIntersecting) reveal(entry.target); });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.04 });
+    // Safety net for fast scrolls and jumps: anything already above the bottom of the screen is shown.
+    function sweep() {
+      ticking = false;
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      pending.slice().forEach(function (el) { if (el.getBoundingClientRect().top < vh) reveal(el); });
+      if (!pending.length) { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); }
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(sweep); } }
+    document.documentElement.classList.add('vp-js-reveal');
+    targets.forEach(function (t) { io.observe(t); });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return function () { io.disconnect(); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
+  } catch (err) {
+    return null;
+  }
+}
+
 function vpMenu() {
   try {
     if (typeof window === 'undefined') return null;
@@ -408,6 +518,8 @@ function vpMenu() {
 }
 
 (function () {
+  vpSmooth();
+  vpReveal();
   vpMenu();
 })();
 </script>
