@@ -194,15 +194,14 @@ a:hover { color: var(--vp-navy-900); }
 
 /* vp-shared:start */
 /* Motion */
-@keyframes vp-rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+@keyframes vp-rise { from { opacity: 0; transform: translateY(var(--vp-rise, 40px)); } to { opacity: 1; transform: none; } }
 @keyframes vp-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes vp-drop { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
-.vp-hero-bg > div:first-child { animation: vp-fade 0.4s ease both; }
 .vp-hero-in > * { animation: vp-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: 0.05s; }
 .vp-hero-in > :nth-child(2) { animation-delay: 0.13s; }
 .vp-hero-in > :nth-child(3) { animation-delay: 0.21s; }
 .vp-hero-in > :nth-child(4) { animation-delay: 0.29s; }
-.vp-js-reveal [data-vp-r] { opacity: 0; transform: translateY(40px); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.vp-js-reveal [data-vp-r] { opacity: 0; transform: translateY(var(--vp-rise-reveal, 40px)); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
 .vp-js-reveal [data-vp-r][data-vp-in] { opacity: 1; transform: none; }
 .vp-js-reveal [data-vp-r="i"]:nth-child(2) { transition-delay: 0.06s; }
 .vp-js-reveal [data-vp-r="i"]:nth-child(3) { transition-delay: 0.12s; }
@@ -296,16 +295,21 @@ a:hover { color: var(--vp-navy-900); }
 .vp-hero-bg > div:first-child { position: relative; z-index: 50; }
 /* vp-menu-fix:end */
 /* vp-vt:start */
-/* Page-to-page transitions: the new page fades and lifts in while the header stays put (supporting browsers). */
-@media (prefers-reduced-motion: no-preference) {
+/* Page-to-page transitions on larger screens only (phones load pages normally): the new page fades in
+   while the header stays put. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 761px) {
   @view-transition { navigation: auto; }
   .vp-hero-bg > div:first-child { view-transition-name: vp-header; }
-  ::view-transition-old(root) { animation: vp-vt-out 0.18s ease-in both; }
-  ::view-transition-new(root) { animation: vp-vt-in 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-  ::view-transition-group(vp-header) { animation-duration: 0.2s; }
+  ::view-transition-old(root) { animation: vp-vt-out 0.16s ease-in both; }
+  ::view-transition-new(root) { animation: vp-vt-in 0.26s ease-out both; }
+  ::view-transition-group(vp-header) { animation-duration: 0s; }
 }
 @keyframes vp-vt-out { to { opacity: 0; } }
-@keyframes vp-vt-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes vp-vt-in { from { opacity: 0; } to { opacity: 1; } }
+/* Phones: shorter, calmer movement */
+@media (max-width: 640px) {
+  :root { --vp-rise: 14px; --vp-rise-reveal: 18px; }
+}
 /* vp-vt:end */
 /* vp-smooth:start */
 /* Smooth scrolling drives the scroll position itself, so the browser's own smoothing must stay off */
