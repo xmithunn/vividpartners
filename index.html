@@ -180,7 +180,9 @@
 ]
 </script>
 <!-- /SEO -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;family=Instrument+Serif:ital@1&amp;display=swap">
 <style>
 :root {
   --vp-navy-950: #132947;
@@ -393,9 +395,9 @@ a:hover { color: var(--vp-navy-900); }
 #insights article:hover .vp-card-media svg { transform: translateY(-4px) scale(1.04); }
 .vp-sector { transition: background-color 0.3s ease; }
 .vp-news-link { margin: 0; }
-/* Scroll-lit statement: dim until JS lights each word */
-.vp-js-words .vp-scroll-words .vp-w { opacity: 0.15; transition: opacity 0.35s ease; }
-.vp-js-words .vp-scroll-words .vp-w[data-on] { opacity: 1; }
+/* News bar: one line; a headline too long for the bar slides left (vpNews). Without JS it wraps. */
+.vp-js-news .vp-news-link { white-space: nowrap; overflow: hidden; }
+.vp-news-text { display: inline-block; }
 @media (max-width: 640px) {
   .vp-card-media { aspect-ratio: 16 / 9; }
   .vp-card-media svg { width: 96px; height: 96px; }
@@ -403,7 +405,6 @@ a:hover { color: var(--vp-navy-900); }
   #main .vp-news-bar { flex-wrap: nowrap !important; justify-content: flex-start !important; gap: 0 16px !important; text-align: left; }
   #main .vp-news-bar .vp-eyebrow { flex: none; }
   #main .vp-news-grid { flex: 1 1 0 !important; max-width: none; margin-inline: 0; grid-template-columns: minmax(0, 1fr); }
-  #main .vp-news-link { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 }
 /* vp-main:end */
 /* vp-phone2:start */
@@ -418,6 +419,22 @@ a:hover { color: var(--vp-navy-900); }
   .vp-news-link { font-size: 0.875rem; line-height: 1.45; padding: 4px 0; }
 }
 /* vp-phone2:end */
+/* vp-scrub:start */
+/* "How we work" statement: words brighten from muted blue-grey to white as the paragraph scrolls through view (vpScrub). */
+.vp-sw-em { font-family: "Instrument Serif", Georgia, "Times New Roman", serif; font-style: italic; font-weight: 400; font-size: 1.16em; line-height: 1; letter-spacing: 0; }
+.vp-scrub--on-dark { --vp-scrub-from: #7F93B1; }
+.vp-scrub--on-light { --vp-scrub-from: #67778F; }
+.vp-js-scrub .vp-scrub .vp-sw { color: var(--vp-scrub-from); transition: color 0.12s linear; }
+/* Principle cards lift on hover; the whole card is the link */
+.vp-lift-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.vp-lift { position: relative; padding: 28px 20px 24px; border: 1px solid transparent; border-radius: var(--vp-radius); transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
+.vp-lift .vp-arrow-link::after { content: ""; position: absolute; inset: 0; }
+.vp-lift:hover, .vp-lift:focus-within { transform: translateY(-8px); background: rgba(255, 255, 255, 0.05); border-color: rgba(180, 197, 220, 0.18); box-shadow: 0 22px 44px rgba(4, 10, 20, 0.35); }
+.vp-lift:hover .vp-arrow, .vp-lift:focus-within .vp-arrow { transform: translateX(4px); }
+.vp-lift:hover .vp-arrow-link, .vp-lift:focus-within .vp-arrow-link { color: var(--vp-paper); }
+@media (max-width: 1099px) { .vp-lift-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .vp-lift-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; } .vp-lift { padding: 22px 16px 20px; } }
+/* vp-scrub:end */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
 }
@@ -431,7 +448,7 @@ a:hover { color: var(--vp-navy-900); }
   <div style="position: relative; max-width: var(--vp-container); margin: 0 auto; padding: 22px var(--vp-gutter); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 40px">
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 56px">
       <a class="vp-logo-link" href="#top" style="display: inline-flex; padding: 10px 0">
-        <img class="vp-logo" src="/vivid-partners-logo.png" alt="Vivid Partners" width="800" height="121">
+        <img class="vp-logo" src="/vivid-partners-logo-white.png" alt="Vivid Partners" width="2067" height="313">
       </a>
       <nav class="vp-nav-desktop" aria-label="Primary" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 32px">
         <a class="vp-nav-link" href="/portfolio">Portfolio</a>
@@ -469,26 +486,37 @@ a:hover { color: var(--vp-navy-900); }
 
 <main id="main">
 
-<div class="vp-bg-paper-2 vp-rule-bottom" id="vp-news">
+<div id="vp-news" class="vp-bg-paper-2 vp-rule-bottom">
   <div class="vp-news-bar" style="max-width: var(--vp-container); margin: 0 auto; padding: 14px var(--vp-gutter); display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px">
     <p class="vp-eyebrow vp-c-muted">News</p>
     <div class="vp-news-grid" aria-live="off" style="flex: 1 1 360px; min-width: 0; display: grid">
-      <p class="vp-news-link" aria-hidden="false" style="grid-area: 1 / 1; opacity: 1; transition: opacity 450ms ease 450ms">Vivid Partners Acquires Keyflow, a Productivity Software Startup Based in San Francisco</p>
-          <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease">Vivid Partners Acquires Vivid Agency, a Client Acquisition and Consulting Firm Based in Toronto</p>
-          <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease">Vivid Partners Acquires Kora, a CRM and Marketing Automation Platform Based in London, UK</p>
-          <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease">A New Generation in Private Investment: Introducing Vivid Partners</p>
-          <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease">Toronto Serial Entrepreneurs Launch Private Investment Firm Vivid Partners</p>
-          <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease">A New Name in Toronto Private Investment: Vivid Partners</p>
-          <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease">Introducing Vivid Partners, a Toronto Firm Built Around Entrepreneurs</p>
-          <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease">Built by Entrepreneurs, for Entrepreneurs: Introducing Vivid Partners</p>
-          <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease">Vivid Partners Launches with a Vision to Build and Own Businesses</p>
-          <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease">Vivid Partners Launches in Toronto to Build, Acquire and Grow Businesses</p>
+      
+        <p class="vp-news-link" aria-hidden="false" style="grid-area: 1 / 1; opacity: 1; transition: opacity 450ms ease 450ms"><span class="vp-news-text">Vivid Partners Acquires Keyflow, a Productivity Software Startup Based in San Francisco</span></p>
+      
+        <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease"><span class="vp-news-text">Vivid Partners Acquires Vivid Agency, a Client Acquisition and Consulting Firm Based in Toronto</span></p>
+      
+        <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease"><span class="vp-news-text">Vivid Partners Acquires Kora, a CRM and Marketing Automation Platform Based in London, UK</span></p>
+      
+        <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease"><span class="vp-news-text">A New Generation in Private Investment: Introducing Vivid Partners</span></p>
+      
+        <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease"><span class="vp-news-text">Toronto Serial Entrepreneurs Launch Private Investment Firm Vivid Partners</span></p>
+      
+        <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease"><span class="vp-news-text">A New Name in Toronto Private Investment: Vivid Partners</span></p>
+      
+        <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease"><span class="vp-news-text">Introducing Vivid Partners, a Toronto Firm Built Around Entrepreneurs</span></p>
+      
+        <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease"><span class="vp-news-text">Built by Entrepreneurs, for Entrepreneurs: Introducing Vivid Partners</span></p>
+      
+        <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease"><span class="vp-news-text">Vivid Partners Launches with a Vision to Build and Own Businesses</span></p>
+      
+        <p class="vp-news-link" aria-hidden="true" style="grid-area: 1 / 1; opacity: 0; transition: opacity 450ms ease"><span class="vp-news-text">Vivid Partners Launches in Toronto to Build, Acquire and Grow Businesses</span></p>
+      
     </div>  </div>
 </div>
 <section id="approach" class="vp-bg-paper" aria-labelledby="vp-approach-title" style="padding-block: clamp(56px, 6vw, 88px) var(--vp-section)">
   <div class="vp-center" style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter)">
     <h2 id="vp-approach-title" class="vp-eyebrow">Our focus</h2>
-    <p class="vp-statement vp-scroll-words" style="margin: 24px auto 0; max-width: 46ch"><span class="vp-w">We</span> <span class="vp-w">back</span> <span class="vp-w">founders</span> <span class="vp-w">and</span> <span class="vp-w">talented</span> <span class="vp-w">teams</span> <span class="vp-w">at</span> <span class="vp-w">every</span> <span class="vp-w">stage</span> <span class="vp-w">of</span> <span class="vp-w">growth,</span> <span class="vp-w">from</span> <span class="vp-w">startups</span> <span class="vp-w">to</span> <span class="vp-w">established</span> <span class="vp-w">industry</span> <span class="vp-w">leaders.</span> <span class="vp-w">Our</span> <span class="vp-w">work</span> <span class="vp-w">spans</span> <span class="vp-w">four</span> <span class="vp-w">sectors,</span> <span class="vp-w">with</span> <span class="vp-w">portfolio</span> <span class="vp-w">companies</span> <span class="vp-w">based</span> <span class="vp-w">in</span> <span class="vp-w">Toronto,</span> <span class="vp-w">San</span> <span class="vp-w">Francisco</span> <span class="vp-w">and</span> <span class="vp-w">London.</span></p>
+    <p class="vp-statement vp-scrub vp-scrub--on-light" style="margin: 24px auto 0; max-width: 46ch"><span class="vp-sw" data-i="0">We</span> <span class="vp-sw" data-i="1">back</span> <span class="vp-sw" data-i="2">founders</span> <span class="vp-sw" data-i="3">and</span> <span class="vp-sw" data-i="4">talented</span> <span class="vp-sw" data-i="5">teams</span> <span class="vp-sw" data-i="6">at</span> <span class="vp-sw" data-i="7">every</span> <span class="vp-sw" data-i="8">stage</span> <span class="vp-sw" data-i="9">of</span> <span class="vp-sw" data-i="10">growth,</span> <span class="vp-sw" data-i="11">from</span> <span class="vp-sw" data-i="12">startups</span> <span class="vp-sw" data-i="13">to</span> <span class="vp-sw" data-i="14">established</span> <span class="vp-sw" data-i="15">industry</span> <span class="vp-sw" data-i="16">leaders.</span> <span class="vp-sw" data-i="17">Our</span> <span class="vp-sw" data-i="18">work</span> <span class="vp-sw" data-i="19">spans</span> <span class="vp-sw" data-i="20">four</span> <span class="vp-sw" data-i="21">sectors,</span> <span class="vp-sw" data-i="22">with</span> <span class="vp-sw" data-i="23">portfolio</span> <span class="vp-sw" data-i="24">companies</span> <span class="vp-sw" data-i="25">based</span> <span class="vp-sw" data-i="26">in</span> <span class="vp-sw" data-i="27">Toronto,</span> <span class="vp-sw" data-i="28">San</span> <span class="vp-sw" data-i="29">Francisco</span> <span class="vp-sw" data-i="30">and</span> <span class="vp-sw" data-i="31">London.</span></p>
     <div class="vp-band" style="margin-top: clamp(40px, 5vw, 64px)">
       <div class="vp-sector">
         <span class="vp-sector-name">Financial Services</span>
@@ -509,24 +537,24 @@ a:hover { color: var(--vp-navy-900); }
 <section class="vp-photo-band" aria-labelledby="vp-principles-title" style="padding-block: var(--vp-section)">
   <div class="vp-center" style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter)">
     <h2 id="vp-principles-title" class="vp-eyebrow vp-c-mist">How we work</h2>
-    <p class="vp-statement vp-c-paper" style="margin: 24px auto 0; max-width: 46ch">Backed by Vivid Capital Partners, our portfolio companies gain direct access to capital, dedicated advisory support and the resources of our firm. We stand behind every partnership, with our partners actively involved in strengthening operations, guiding critical decisions and supporting continued growth.</p>
-    <ul class="vp-list-reset" style="margin-top: clamp(40px, 5vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px 32px">
-      <li class="vp-stack" style="gap: 12px">
+    <p class="vp-statement vp-c-paper vp-scrub vp-scrub--on-dark" style="margin: 24px auto 0; max-width: 46ch"><span class="vp-sw" data-i="0">Backed</span> <span class="vp-sw" data-i="1">by</span> <span class="vp-sw" data-i="2">Vivid</span> <span class="vp-sw" data-i="3">Partners,</span> <span class="vp-sw" data-i="4">our</span> <span class="vp-sw" data-i="5">portfolio</span> <span class="vp-sw" data-i="6">companies</span> <span class="vp-sw" data-i="7">gain</span> <span class="vp-sw" data-i="8">direct</span> <span class="vp-sw" data-i="9">access</span> <span class="vp-sw" data-i="10">to</span> <span class="vp-sw" data-i="11">capital,</span> <span class="vp-sw" data-i="12">dedicated</span> <span class="vp-sw" data-i="13">advisory</span> <span class="vp-sw" data-i="14">support</span> <span class="vp-sw" data-i="15">and</span> <span class="vp-sw" data-i="16">the</span> <span class="vp-sw" data-i="17">resources</span> <span class="vp-sw" data-i="18">of</span> <span class="vp-sw" data-i="19">our</span> <span class="vp-sw" data-i="20">firm.</span> <span class="vp-sw" data-i="21">We</span> <span class="vp-sw" data-i="22">stand</span> <span class="vp-sw" data-i="23">behind</span> <span class="vp-sw" data-i="24"><span class="vp-sw-em">every partnership</span>,</span> <span class="vp-sw" data-i="25">with</span> <span class="vp-sw" data-i="26">our</span> <span class="vp-sw" data-i="27">partners</span> <span class="vp-sw" data-i="28">actively</span> <span class="vp-sw" data-i="29">involved</span> <span class="vp-sw" data-i="30">in</span> <span class="vp-sw" data-i="31">strengthening</span> <span class="vp-sw" data-i="32">operations,</span> <span class="vp-sw" data-i="33">guiding</span> <span class="vp-sw" data-i="34">critical</span> <span class="vp-sw" data-i="35">decisions</span> <span class="vp-sw" data-i="36">and</span> <span class="vp-sw" data-i="37">supporting</span> <span class="vp-sw" data-i="38"><span class="vp-sw-em">continued growth</span>.</span></p>
+    <ul class="vp-list-reset vp-lift-grid" style="margin-top: clamp(40px, 5vw, 72px)">
+      <li class="vp-stack vp-lift" style="gap: 12px">
         <h3 class="vp-h4 vp-c-paper">Dedicated advisory team</h3>
         <p class="vp-small vp-c-mist" style="max-width: 28ch; flex-grow: 1">Our portfolio companies have direct access to a dedicated advisory team with experience across a wide range of industries.</p>
         <a class="vp-arrow-link vp-arrow-link--light" href="/team">Team <svg class="vp-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11.5M9.5 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
       </li>
-      <li class="vp-stack" style="gap: 12px">
+      <li class="vp-stack vp-lift" style="gap: 12px">
         <h3 class="vp-h4 vp-c-paper">Flexible vesting structures</h3>
         <p class="vp-small vp-c-mist" style="max-width: 28ch; flex-grow: 1">We design vesting and ownership structures around each transaction, keeping founders and management aligned with the company’s long-term growth.</p>
         <a class="vp-arrow-link vp-arrow-link--light" href="/approach">Approach <svg class="vp-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11.5M9.5 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
       </li>
-      <li class="vp-stack" style="gap: 12px">
+      <li class="vp-stack vp-lift" style="gap: 12px">
         <h3 class="vp-h4 vp-c-paper">Active ownership</h3>
         <p class="vp-small vp-c-mist" style="max-width: 28ch; flex-grow: 1">We support management on talent, pricing, operating systems and acquisitions.</p>
         <a class="vp-arrow-link vp-arrow-link--light" href="/portfolio">Portfolio <svg class="vp-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11.5M9.5 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
       </li>
-      <li class="vp-stack" style="gap: 12px">
+      <li class="vp-stack vp-lift" style="gap: 12px">
         <h3 class="vp-h4 vp-c-paper">Sector expertise</h3>
         <p class="vp-small vp-c-mist" style="max-width: 28ch; flex-grow: 1">Our investment decisions are informed by focused research in the sectors where we invest.</p>
         <a class="vp-arrow-link vp-arrow-link--light" href="/insights">Insights <svg class="vp-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11.5M9.5 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
@@ -587,7 +615,7 @@ a:hover { color: var(--vp-navy-900); }
   <div style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter)">
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 48px 64px">
       <div style="flex: 1 1 260px; max-width: 340px">
-        <img src="/vivid-partners-logo.png" alt="Vivid Partners" width="800" height="121" style="height: 26px; width: auto; display: block; margin-bottom: 20px">
+        <img src="/vivid-partners-logo-white.png" alt="Vivid Partners" width="2067" height="313" style="height: 26px; width: auto; display: block; margin-bottom: 20px">
       </div>
       <nav aria-label="Footer" style="flex: 999 1 520px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 32px">
         <div>
@@ -616,7 +644,7 @@ a:hover { color: var(--vp-navy-900); }
       </nav>
     </div>
     <div class="vp-rule-top-dark" style="margin-top: 48px; padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 32px">
-      <p class="vp-small">© 2027 Vivid Partners. All rights reserved.</p>
+      <p class="vp-small">© 2026 Vivid Partners. All rights reserved.</p>
       <ul class="vp-list-reset" style="display: flex; flex-wrap: wrap; gap: 0 24px">
         <li><a class="vp-foot-link" href="/privacy">Privacy</a></li>
         <li><a class="vp-foot-link" href="/terms">Terms</a></li>
@@ -627,13 +655,13 @@ a:hover { color: var(--vp-navy-900); }
 </footer>
 </div>
 <script>
-// Scroll reveal: fades page sections in as they enter the viewport. Skipped for reduced motion.
 function vpReveal() {
   try {
     if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return null;
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
     var targets = [];
     document.querySelectorAll('main > section > div, main > div').forEach(function (box) {
+      if (box.closest('[hidden]')) return;
       Array.prototype.forEach.call(box.children, function (el) {
         var kids = Array.prototype.slice.call(el.children);
         var group = el.tagName === 'UL' || el.tagName === 'OL' || (kids.length > 1 && getComputedStyle(el).display === 'grid');
@@ -641,83 +669,146 @@ function vpReveal() {
         else { el.setAttribute('data-vp-r', '1'); targets.push(el); }
       });
     });
+    var pending = targets.slice(), ticking = false;
+    function reveal(el) {
+      var k = pending.indexOf(el);
+      if (k === -1) return;
+      pending.splice(k, 1);
+      io.unobserve(el);
+      el.setAttribute('data-vp-in', '');
+      setTimeout(function () { el.removeAttribute('data-vp-r'); el.removeAttribute('data-vp-in'); }, 1400);
+    }
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var el = entry.target;
-        io.unobserve(el);
-        el.setAttribute('data-vp-in', '');
-        setTimeout(function () { el.removeAttribute('data-vp-r'); el.removeAttribute('data-vp-in'); }, 1400);
-      });
+      entries.forEach(function (entry) { if (entry.isIntersecting) reveal(entry.target); });
     }, { rootMargin: '0px 0px -6% 0px', threshold: 0.04 });
+    // Safety net for fast scrolls and jumps: anything already above the bottom of the screen is shown.
+    function sweep() {
+      ticking = false;
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      pending.slice().forEach(function (el) { if (el.getBoundingClientRect().top < vh) reveal(el); });
+      if (!pending.length) { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); }
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(sweep); } }
     document.documentElement.classList.add('vp-js-reveal');
     targets.forEach(function (t) { io.observe(t); });
-    return function () { io.disconnect(); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return function () { io.disconnect(); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
   } catch (err) {
     return null;
   }
 }
 
-// "Our focus" statement: words light up one by one as the paragraph scrolls up the screen. Skipped for reduced motion.
-function vpScrollWords() {
+function vpScrub() {
   try {
     if (typeof window === 'undefined') return null;
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
-    var el = document.querySelector('.vp-scroll-words');
-    if (!el) return null;
-    var words = el.querySelectorAll('.vp-w');
-    var lit = -1, ticking = false;
-    function update() {
-      ticking = false;
-      var r = el.getBoundingClientRect();
-      var vh = window.innerHeight || document.documentElement.clientHeight;
-      var p = (vh * 0.75 - r.top) / (vh * 0.4 + r.height);
-      var n = Math.round(Math.max(0, Math.min(1, p)) * words.length);
-      if (n === lit) return;
-      lit = n;
-      for (var i = 0; i < words.length; i++) {
-        if (i < n) words[i].setAttribute('data-on', ''); else words[i].removeAttribute('data-on');
-      }
+    var blocks = Array.prototype.slice.call(document.querySelectorAll('.vp-scrub'));
+    if (!blocks.length) return null;
+    var SOFT = 2.2, ticking = false;
+    function rgb(str) {
+      str = (str || '').trim();
+      if (str.charAt(0) === '#') return [1, 3, 5].map(function (k) { return parseInt(str.substr(k, 2), 16); });
+      var m = str.match(/\d+(\.\d+)?/g);
+      return m ? m.slice(0, 3).map(Number) : [255, 255, 255];
     }
-    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
-    document.documentElement.classList.add('vp-js-words');
-    update();
+    var items = blocks.map(function (el) {
+      return { el: el, words: Array.prototype.slice.call(el.querySelectorAll('.vp-sw')), last: [],
+               from: rgb(getComputedStyle(el).getPropertyValue('--vp-scrub-from')), to: rgb(getComputedStyle(el).color) };
+    });
+    function paint() {
+      ticking = false;
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      items.forEach(function (it) {
+        var r = it.el.getBoundingClientRect();
+        var p = Math.max(0, Math.min(1, (vh * 0.85 - r.top) / (vh * 0.45 + r.height)));
+        var x = p * (it.words.length - 1 + SOFT);
+        for (var i = 0; i < it.words.length; i++) {
+          var t = Math.round(Math.max(0, Math.min(1, (x - i) / SOFT)) * 40) / 40;
+          if (it.last[i] === t) continue;
+          it.last[i] = t;
+          it.words[i].style.color = 'rgb(' + it.from.map(function (c, k) { return Math.round(c + (it.to[k] - c) * t); }).join(',') + ')';
+        }
+      });
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(paint); } }
+    document.documentElement.classList.add('vp-js-scrub');
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
+    paint();
     return function () { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
   } catch (err) {
     return null;
   }
 }
 
-vpReveal();
-
-vpScrollWords();
-
-// Homepage news bar: rotates headlines every 4s, pauses on hover/focus, stays still with reduced motion.
-(function () {
-  var box = document.getElementById('vp-news');
-  if (!box) return;
-  var items = box.querySelectorAll('.vp-news-link');
-  var index = 0, hover = false, paused = false;
-  try { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) paused = true; } catch (e) {}
-  function show(n) {
-    Array.prototype.forEach.call(items, function (el, k) {
-      var on = k === n;
-      el.setAttribute('aria-hidden', on ? 'false' : 'true');
-      el.style.opacity = on ? '1' : '0';
-      el.style.transition = on ? 'opacity 450ms ease 450ms' : 'opacity 450ms ease';
-    });
+function vpNews() {
+  try {
+    if (typeof window === 'undefined') return null;
+    var box = document.getElementById('vp-news');
+    if (!box) return null;
+    var items = box.querySelectorAll('.vp-news-link');
+    if (items.length < 2) return null;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+    var FADE = 900, READ = 1400, HOLD = 1800, SPEED = 55; // ms, ms, ms, px per second
+    var index = 0, hover = false, stopped = false, timer = null;
+    function textOf(el) { return el.querySelector('.vp-news-text') || el; }
+    function show(n) {
+      Array.prototype.forEach.call(items, function (el, k) {
+        var on = k === n;
+        el.setAttribute('aria-hidden', on ? 'false' : 'true');
+        el.style.opacity = on ? '1' : '0';
+        el.style.transition = on ? 'opacity 450ms ease 450ms' : 'opacity 450ms ease';
+        if (!on) { var t = textOf(el); t.style.transition = 'none'; t.style.transform = 'translateX(0)'; }
+      });
+    }
+    function run(first) {
+      if (stopped) return;
+      var el = items[index], t = textOf(el);
+      var overflow = Math.ceil(t.offsetWidth - el.clientWidth);
+      if (overflow > 4) {
+        var slide = Math.round(overflow / SPEED * 1000);
+        timer = setTimeout(function () {
+          t.style.transition = 'transform ' + slide + 'ms linear';
+          t.style.transform = 'translateX(' + (-overflow) + 'px)';
+          timer = setTimeout(next, slide + HOLD);
+        }, (first ? 0 : FADE) + READ);
+      } else {
+        timer = setTimeout(next, 4000);
+      }
+    }
+    function next() {
+      if (stopped) return;
+      if (hover) { timer = setTimeout(next, 500); return; }
+      index = (index + 1) % items.length;
+      show(index);
+      run(false);
+    }
+    function on() { hover = true; }
+    function off() { hover = false; }
+    box.addEventListener('mouseenter', on);
+    box.addEventListener('mouseleave', off);
+    box.addEventListener('focusin', on);
+    box.addEventListener('focusout', off);
+    document.documentElement.classList.add('vp-js-news');
+    run(true);
+    return function () {
+      stopped = true;
+      clearTimeout(timer);
+      box.removeEventListener('mouseenter', on);
+      box.removeEventListener('mouseleave', off);
+      box.removeEventListener('focusin', on);
+      box.removeEventListener('focusout', off);
+    };
+  } catch (err) {
+    return null;
   }
-  box.addEventListener('mouseenter', function () { hover = true; });
-  box.addEventListener('mouseleave', function () { hover = false; });
-  box.addEventListener('focusin', function () { hover = true; });
-  box.addEventListener('focusout', function () { hover = false; });
-  setInterval(function () {
-    if (hover || paused) return;
-    index = (index + 1) % items.length;
-    show(index);
-  }, 4000);
+}
+
+(function () {
+  vpReveal();
+  vpScrub();
+  vpNews();
 })();
 </script>
 </body>

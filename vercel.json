@@ -1,28 +1,7 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "outputDirectory": ".",
   "redirects": [
-    {
-      "source": "/careers",
-      "destination": "/about",
-      "permanent": true
-    },
-    {
-      "source": "/contact",
-      "destination": "/about",
-      "permanent": true
-    },
-    {
-      "source": "/partner-stories",
-      "destination": "/portfolio",
-      "permanent": true
-    },
-    {
-      "source": "/resources",
-      "destination": "/insights",
-      "permanent": true
-    },
     {
       "source": "/team-mithun",
       "destination": "/team",
@@ -41,6 +20,26 @@
     {
       "source": "/team-rathusan",
       "destination": "/team",
+      "permanent": true
+    },
+    {
+      "source": "/resources",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/partner-stories",
+      "destination": "/portfolio",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/careers",
+      "destination": "/about",
       "permanent": true
     }
   ]

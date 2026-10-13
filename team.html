@@ -132,6 +132,8 @@
 ]
 </script>
 <!-- /SEO -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap">
 <style>
 :root {
@@ -361,11 +363,6 @@ a:hover { color: var(--vp-navy-900); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
 }
-/* Profiles: hidden until their #anchor is the URL target */
-a.vp-person { text-decoration: none; }
-.vp-profile { display: none; }
-.vp-profile:target { display: block; }
-main:has(.vp-profile:target) .vp-team-list { display: none; }
 </style>
 </head>
 <body>
@@ -376,7 +373,7 @@ main:has(.vp-profile:target) .vp-team-list { display: none; }
   <div style="position: relative; max-width: var(--vp-container); margin: 0 auto; padding: 22px var(--vp-gutter); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 40px">
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 56px">
       <a class="vp-logo-link" href="/" style="display: inline-flex; padding: 10px 0">
-        <img class="vp-logo" src="/vivid-partners-logo.png" alt="Vivid Partners home" width="800" height="121">
+        <img class="vp-logo" src="/vivid-partners-logo-white.png" alt="Vivid Partners home" width="2067" height="313">
       </a>
       <nav class="vp-nav-desktop" aria-label="Primary" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 32px">
         <a class="vp-nav-link" href="/portfolio">Portfolio</a>
@@ -408,49 +405,52 @@ main:has(.vp-profile:target) .vp-team-list { display: none; }
 
 <main id="main">
 
-<section id="team-list" class="vp-bg-paper vp-team-list" aria-labelledby="vp-team-list-title" style="padding-block: clamp(40px, 5vw, 64px) var(--vp-section)">
+
+<section class="vp-bg-paper" aria-labelledby="vp-team-list-title" style="padding-block: clamp(40px, 5vw, 64px) var(--vp-section)" data-if="showGrid">
   <h2 id="vp-team-list-title" class="vp-visually-hidden">Team members</h2>
   <div style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter)">
     <div class="vp-tabs" role="group" aria-label="Filter team">
-      <button class="vp-tab is-active" type="button" aria-pressed="true" data-filter="all">All</button>
-      <button class="vp-tab" type="button" aria-pressed="false" data-filter="leadership">Leadership</button>
-      <button class="vp-tab" type="button" aria-pressed="false" data-filter="investing">Investing</button>
-      <button class="vp-tab" type="button" aria-pressed="false" data-filter="operations">Operations</button>
+      <button class="vp-tab is-active" type="button" aria-pressed="true" data-on-click="tabs.all.pick">All</button>
+      <button class="vp-tab" type="button" aria-pressed="false" data-on-click="tabs.leadership.pick">Leadership</button>
+      <button class="vp-tab" type="button" aria-pressed="false" data-on-click="tabs.investing.pick">Investing</button>
+      <button class="vp-tab" type="button" aria-pressed="false" data-on-click="tabs.operations.pick">Operations</button>
     </div>
     <ul class="vp-list-reset vp-team-grid" style="margin-top: clamp(40px, 5vw, 64px); display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 48px 28px">
-      <li data-groups="leadership investing operations">
-        <a class="vp-person" href="#mithun-narendran">
+      <li style="display: block">
+        <button class="vp-person" type="button" data-on-click="open.mithun">
           <span class="vp-person-photo" aria-hidden="true"><span class="vp-initials">MN</span></span>
           <span class="vp-person-name">Mithun Narendran</span>
           <span class="vp-person-role">Co-Founder</span>
-        </a>
+        </button>
       </li>
-      <li data-groups="leadership investing operations">
-        <a class="vp-person" href="#abishan-ravinthran">
+      <li style="display: block">
+        <button class="vp-person" type="button" data-on-click="open.abishan">
           <span class="vp-person-photo" aria-hidden="true"><span class="vp-initials">AR</span></span>
           <span class="vp-person-name">Abishan Ravinthran</span>
           <span class="vp-person-role">Co-Founder</span>
-        </a>
+        </button>
       </li>
-      <li data-groups="leadership operations">
-        <a class="vp-person" href="#vathusan-udayakumaran">
+      <li style="display: block">
+        <button class="vp-person" type="button" data-on-click="open.vathusan">
           <span class="vp-person-photo" aria-hidden="true"><span class="vp-initials">VU</span></span>
           <span class="vp-person-name">Vathusan Udayakumaran</span>
           <span class="vp-person-role">Chief Operating Officer</span>
-        </a>
+        </button>
       </li>
-      <li data-groups="investing">
-        <a class="vp-person" href="#rathusan-udayakumaran">
+      <li style="display: block">
+        <button class="vp-person" type="button" data-on-click="open.rathusan">
           <span class="vp-person-photo" aria-hidden="true"><span class="vp-initials">RU</span></span>
           <span class="vp-person-name">Rathusan Udayakumaran</span>
           <span class="vp-person-role">Equity Research Analyst</span>
-        </a>
+        </button>
       </li>
     </ul>
   </div>
 </section>
 
-<section id="mithun-narendran" class="vp-bg-paper vp-profile" aria-labelledby="vp-profile-mithun" style="padding-block: var(--vp-section)">
+
+
+<section class="vp-bg-paper" aria-labelledby="vp-profile-mithun" style="padding-block: var(--vp-section)" data-if="sel.mithun" hidden="">
   <div style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 48px clamp(40px, 6vw, 80px)">
     <div class="vp-person-photo" aria-hidden="true" style="flex: 1 1 280px; max-width: 420px">
       <span class="vp-initials vp-initials--lg">MN</span>
@@ -476,13 +476,15 @@ main:has(.vp-profile:target) .vp-team-list { display: none; }
         <p class="vp-body vp-c-text">His background combines business ownership, advisory work and company operations. He remains involved following investment, working with founders and management teams on company strategy, operating performance and growth.</p>
       </div>
       <div style="margin-top: 56px">
-        <a class="vp-btn vp-btn--outline" href="#team-list">Back to team</a>
+        <button class="vp-btn vp-btn--outline" type="button" data-on-click="closeProfile">Back to team</button>
       </div>
     </div>
   </div>
 </section>
 
-<section id="abishan-ravinthran" class="vp-bg-paper vp-profile" aria-labelledby="vp-profile-abishan" style="padding-block: var(--vp-section)">
+
+
+<section class="vp-bg-paper" aria-labelledby="vp-profile-abishan" style="padding-block: var(--vp-section)" data-if="sel.abishan" hidden="">
   <div style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 48px clamp(40px, 6vw, 80px)">
     <div class="vp-person-photo" aria-hidden="true" style="flex: 1 1 280px; max-width: 420px">
       <span class="vp-initials vp-initials--lg">AR</span>
@@ -512,13 +514,15 @@ main:has(.vp-profile:target) .vp-team-list { display: none; }
         <p class="vp-body vp-c-text">Abishan holds a Bachelor of Commerce in Finance from the University of Toronto.</p>
       </div>
       <div style="margin-top: 56px">
-        <a class="vp-btn vp-btn--outline" href="#team-list">Back to team</a>
+        <button class="vp-btn vp-btn--outline" type="button" data-on-click="closeProfile">Back to team</button>
       </div>
     </div>
   </div>
 </section>
 
-<section id="vathusan-udayakumaran" class="vp-bg-paper vp-profile" aria-labelledby="vp-profile-vathusan" style="padding-block: var(--vp-section)">
+
+
+<section class="vp-bg-paper" aria-labelledby="vp-profile-vathusan" style="padding-block: var(--vp-section)" data-if="sel.vathusan" hidden="">
   <div style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 48px clamp(40px, 6vw, 80px)">
     <div class="vp-person-photo" aria-hidden="true" style="flex: 1 1 280px; max-width: 420px">
       <span class="vp-initials vp-initials--lg">VU</span>
@@ -548,13 +552,15 @@ main:has(.vp-profile:target) .vp-team-list { display: none; }
         <p class="vp-body vp-c-text">Vathusan holds a Bachelor of Engineering in Mechanical Engineering from Toronto Metropolitan University.</p>
       </div>
       <div style="margin-top: 56px">
-        <a class="vp-btn vp-btn--outline" href="#team-list">Back to team</a>
+        <button class="vp-btn vp-btn--outline" type="button" data-on-click="closeProfile">Back to team</button>
       </div>
     </div>
   </div>
 </section>
 
-<section id="rathusan-udayakumaran" class="vp-bg-paper vp-profile" aria-labelledby="vp-profile-rathusan" style="padding-block: var(--vp-section)">
+
+
+<section class="vp-bg-paper" aria-labelledby="vp-profile-rathusan" style="padding-block: var(--vp-section)" data-if="sel.rathusan" hidden="">
   <div style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 48px clamp(40px, 6vw, 80px)">
     <div class="vp-person-photo" aria-hidden="true" style="flex: 1 1 280px; max-width: 420px">
       <span class="vp-initials vp-initials--lg">RU</span>
@@ -584,11 +590,12 @@ main:has(.vp-profile:target) .vp-team-list { display: none; }
         <p class="vp-body vp-c-text">Rathusan holds an Honours Bachelor of Commerce in Business Management, majoring in Real Estate Management, from Toronto Metropolitan University.</p>
       </div>
       <div style="margin-top: 56px">
-        <a class="vp-btn vp-btn--outline" href="#team-list">Back to team</a>
+        <button class="vp-btn vp-btn--outline" type="button" data-on-click="closeProfile">Back to team</button>
       </div>
     </div>
   </div>
 </section>
+
 
 </main>
 
@@ -596,7 +603,7 @@ main:has(.vp-profile:target) .vp-team-list { display: none; }
   <div style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter)">
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 48px 64px">
       <div style="flex: 1 1 260px; max-width: 340px">
-        <img src="/vivid-partners-logo.png" alt="Vivid Partners" width="800" height="121" style="height: 26px; width: auto; display: block; margin-bottom: 20px">
+        <img src="/vivid-partners-logo-white.png" alt="Vivid Partners" width="2067" height="313" style="height: 26px; width: auto; display: block; margin-bottom: 20px">
       </div>
       <nav aria-label="Footer" style="flex: 999 1 520px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 32px">
         <div>
@@ -625,7 +632,7 @@ main:has(.vp-profile:target) .vp-team-list { display: none; }
       </nav>
     </div>
     <div class="vp-rule-top-dark" style="margin-top: 48px; padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 32px">
-      <p class="vp-small">© 2027 Vivid Partners. All rights reserved.</p>
+      <p class="vp-small">© 2026 Vivid Partners. All rights reserved.</p>
       <ul class="vp-list-reset" style="display: flex; flex-wrap: wrap; gap: 0 24px">
         <li><a class="vp-foot-link" href="/privacy">Privacy</a></li>
         <li><a class="vp-foot-link" href="/terms">Terms</a></li>
@@ -636,13 +643,13 @@ main:has(.vp-profile:target) .vp-team-list { display: none; }
 </footer>
 </div>
 <script>
-// Scroll reveal: fades page sections in as they enter the viewport. Skipped for reduced motion.
 function vpReveal() {
   try {
     if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return null;
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
     var targets = [];
     document.querySelectorAll('main > section > div, main > div').forEach(function (box) {
+      if (box.closest('[hidden]')) return;
       Array.prototype.forEach.call(box.children, function (el) {
         var kids = Array.prototype.slice.call(el.children);
         var group = el.tagName === 'UL' || el.tagName === 'OL' || (kids.length > 1 && getComputedStyle(el).display === 'grid');
@@ -650,41 +657,76 @@ function vpReveal() {
         else { el.setAttribute('data-vp-r', '1'); targets.push(el); }
       });
     });
+    var pending = targets.slice(), ticking = false;
+    function reveal(el) {
+      var k = pending.indexOf(el);
+      if (k === -1) return;
+      pending.splice(k, 1);
+      io.unobserve(el);
+      el.setAttribute('data-vp-in', '');
+      setTimeout(function () { el.removeAttribute('data-vp-r'); el.removeAttribute('data-vp-in'); }, 1400);
+    }
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var el = entry.target;
-        io.unobserve(el);
-        el.setAttribute('data-vp-in', '');
-        setTimeout(function () { el.removeAttribute('data-vp-r'); el.removeAttribute('data-vp-in'); }, 1400);
-      });
+      entries.forEach(function (entry) { if (entry.isIntersecting) reveal(entry.target); });
     }, { rootMargin: '0px 0px -6% 0px', threshold: 0.04 });
+    // Safety net for fast scrolls and jumps: anything already above the bottom of the screen is shown.
+    function sweep() {
+      ticking = false;
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      pending.slice().forEach(function (el) { if (el.getBoundingClientRect().top < vh) reveal(el); });
+      if (!pending.length) { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); }
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(sweep); } }
     document.documentElement.classList.add('vp-js-reveal');
     targets.forEach(function (t) { io.observe(t); });
-    return function () { io.disconnect(); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return function () { io.disconnect(); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
   } catch (err) {
     return null;
   }
 }
 
-vpReveal();
-
-// Team filter tabs. Profiles open through #anchors and CSS :target, so they work without JavaScript.
 (function () {
-  var tabs = document.querySelectorAll('.vp-tab[data-filter]');
-  var people = document.querySelectorAll('.vp-team-grid > li[data-groups]');
-  Array.prototype.forEach.call(tabs, function (tab) {
-    tab.addEventListener('click', function () {
-      var f = tab.getAttribute('data-filter');
-      Array.prototype.forEach.call(tabs, function (t) {
-        var on = t === tab;
-        t.classList.toggle('is-active', on);
-        t.setAttribute('aria-pressed', on ? 'true' : 'false');
-      });
-      Array.prototype.forEach.call(people, function (li) {
-        li.hidden = !(f === 'all' || li.getAttribute('data-groups').split(' ').indexOf(f) !== -1);
-      });
+  vpReveal();
+})();
+
+// Team page: filter tabs, opening a profile and going back to the grid.
+(function () {
+  var groups = {
+    mithun: ['leadership', 'investing', 'operations'],
+    abishan: ['leadership', 'investing', 'operations'],
+    vathusan: ['leadership', 'operations'],
+    rathusan: ['investing']
+  };
+  var grid = document.querySelector('[data-if="showGrid"]');
+  function profile(id) { return document.querySelector('[data-if="sel.' + id + '"]'); }
+  function setFilter(f) {
+    document.querySelectorAll('[data-on-click^="tabs."]').forEach(function (b) {
+      var on = b.getAttribute('data-on-click').split('.')[1] === f;
+      b.className = on ? 'vp-tab is-active' : 'vp-tab';
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
+    document.querySelectorAll('[data-on-click^="open."]').forEach(function (b) {
+      var id = b.getAttribute('data-on-click').split('.')[1];
+      var li = b.closest('li');
+      if (li) li.style.display = (f === 'all' || groups[id].indexOf(f) !== -1) ? 'block' : 'none';
+    });
+  }
+  function show(id) {
+    if (grid) grid.hidden = !!id;
+    Object.keys(groups).forEach(function (k) { var p = profile(k); if (p) p.hidden = k !== id; });
+    try { window.scrollTo({ top: 0 }); } catch (e) { window.scrollTo(0, 0); }
+    var target = id ? profile(id) && profile(id).querySelector('h2') : grid && grid.querySelector('.vp-tab.is-active');
+    if (target) { if (id) target.setAttribute('tabindex', '-1'); try { target.focus({ preventScroll: true }); } catch (e) {} }
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-on-click]');
+    if (!t) return;
+    var a = t.getAttribute('data-on-click');
+    if (a.indexOf('tabs.') === 0) setFilter(a.split('.')[1]);
+    else if (a.indexOf('open.') === 0) show(a.split('.')[1]);
+    else if (a === 'closeProfile') show(null);
   });
 })();
 </script>

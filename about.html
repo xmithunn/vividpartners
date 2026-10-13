@@ -48,6 +48,8 @@
 }
 </script>
 <!-- /SEO -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;display=swap">
 <style>
 :root {
@@ -258,7 +260,7 @@ a:hover { color: var(--vp-navy-900); }
   <div style="position: relative; max-width: var(--vp-container); margin: 0 auto; padding: 22px var(--vp-gutter); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 40px">
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 56px">
       <a class="vp-logo-link" href="/" style="display: inline-flex; padding: 10px 0">
-        <img class="vp-logo" src="/vivid-partners-logo.png" alt="Vivid Partners home" width="800" height="121">
+        <img class="vp-logo" src="/vivid-partners-logo-white.png" alt="Vivid Partners home" width="2067" height="313">
       </a>
       <nav class="vp-nav-desktop" aria-label="Primary" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 32px">
         <a class="vp-nav-link" href="/portfolio">Portfolio</a>
@@ -347,7 +349,7 @@ a:hover { color: var(--vp-navy-900); }
   <div style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter)">
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 48px 64px">
       <div style="flex: 1 1 260px; max-width: 340px">
-        <img src="/vivid-partners-logo.png" alt="Vivid Partners" width="800" height="121" style="height: 26px; width: auto; display: block">
+        <img src="/vivid-partners-logo-white.png" alt="Vivid Partners" width="2067" height="313" style="height: 26px; width: auto; display: block">
       </div>
       <nav aria-label="Footer" style="flex: 999 1 520px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 32px">
         <div>
@@ -376,7 +378,7 @@ a:hover { color: var(--vp-navy-900); }
       </nav>
     </div>
     <div class="vp-rule-top-dark" style="margin-top: 48px; padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 32px">
-      <p class="vp-small">© 2027 Vivid Partners. All rights reserved.</p>
+      <p class="vp-small">© 2026 Vivid Partners. All rights reserved.</p>
       <ul class="vp-list-reset" style="display: flex; flex-wrap: wrap; gap: 0 24px">
         <li><a class="vp-foot-link" href="/privacy">Privacy</a></li>
         <li><a class="vp-foot-link" href="/terms">Terms</a></li>
@@ -387,13 +389,13 @@ a:hover { color: var(--vp-navy-900); }
 </footer>
 </div>
 <script>
-// Scroll reveal: fades page sections in as they enter the viewport. Skipped for reduced motion.
 function vpReveal() {
   try {
     if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return null;
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
     var targets = [];
     document.querySelectorAll('main > section > div, main > div').forEach(function (box) {
+      if (box.closest('[hidden]')) return;
       Array.prototype.forEach.call(box.children, function (el) {
         var kids = Array.prototype.slice.call(el.children);
         var group = el.tagName === 'UL' || el.tagName === 'OL' || (kids.length > 1 && getComputedStyle(el).display === 'grid');
@@ -401,24 +403,39 @@ function vpReveal() {
         else { el.setAttribute('data-vp-r', '1'); targets.push(el); }
       });
     });
+    var pending = targets.slice(), ticking = false;
+    function reveal(el) {
+      var k = pending.indexOf(el);
+      if (k === -1) return;
+      pending.splice(k, 1);
+      io.unobserve(el);
+      el.setAttribute('data-vp-in', '');
+      setTimeout(function () { el.removeAttribute('data-vp-r'); el.removeAttribute('data-vp-in'); }, 1400);
+    }
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var el = entry.target;
-        io.unobserve(el);
-        el.setAttribute('data-vp-in', '');
-        setTimeout(function () { el.removeAttribute('data-vp-r'); el.removeAttribute('data-vp-in'); }, 1400);
-      });
+      entries.forEach(function (entry) { if (entry.isIntersecting) reveal(entry.target); });
     }, { rootMargin: '0px 0px -6% 0px', threshold: 0.04 });
+    // Safety net for fast scrolls and jumps: anything already above the bottom of the screen is shown.
+    function sweep() {
+      ticking = false;
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      pending.slice().forEach(function (el) { if (el.getBoundingClientRect().top < vh) reveal(el); });
+      if (!pending.length) { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); }
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(sweep); } }
     document.documentElement.classList.add('vp-js-reveal');
     targets.forEach(function (t) { io.observe(t); });
-    return function () { io.disconnect(); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return function () { io.disconnect(); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
   } catch (err) {
     return null;
   }
 }
 
-vpReveal();
+(function () {
+  vpReveal();
+})();
 </script>
 </body>
 </html>
