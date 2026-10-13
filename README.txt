@@ -10,8 +10,9 @@ WHAT'S IN HERE
   how-small-businesses-are-valued.html,
   succession-planning-canada.html             Insights articles (same addresses as the old site)
   privacy.html, terms.html, disclosures.html  Legal pages
-  vivid-partners-logo-white.png               Header and footer logo (the only image file;
-                                              the portfolio logos are built into portfolio.html)
+  vivid-partners-logo-white.png               Spare copy of the logo. Every logo (header, footer,
+                                              portfolio) is built into the pages themselves, so
+                                              nothing breaks if this file is missing.
   sitemap.xml, robots.txt, llms.txt           SEO files
   vercel.json                                 Clean URLs + redirects from retired pages
 
