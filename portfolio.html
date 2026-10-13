@@ -247,6 +247,10 @@ a:hover { color: var(--vp-navy-900); }
 /* Keep the header (and the phone menu dropping out of it) above everything that follows on the page */
 .vp-hero-bg > div:first-child { position: relative; z-index: 50; }
 /* vp-menu-fix:end */
+/* vp-co-img:start */
+/* Portfolio logos: fixed width and height so no browser (notably iPhone Safari) can shrink them to nothing */
+.vp-co-img { display: block; flex: none; height: var(--h); width: calc(var(--h) * var(--r)); max-width: none; margin: 0 !important; }
+/* vp-co-img:end */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
 }
@@ -294,7 +298,7 @@ a:hover { color: var(--vp-navy-900); }
   <div style="max-width: var(--vp-container); margin: 0 auto; padding-inline: var(--vp-gutter)">
     <ul class="vp-list-reset" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 56px 32px">
       <li class="vp-company">
-        <div class="vp-company-logo" aria-hidden="true"><img src="/images/keyflow.png" alt="" width="507" height="120" style="display: block; width: auto; height: auto; max-width: 64%; max-height: clamp(30px, 3vw, 42px)"></div>
+        <div class="vp-company-logo" aria-hidden="true"><img class="vp-co-img" src="/images/keyflow.png" alt="" width="507" height="120" style="--h: clamp(30px, 3vw, 42px); --r: 4.225"></div>
         <h2 class="vp-company-name">Keyflow</h2>
         <p class="vp-company-text">A productivity software company.</p>
         <dl class="vp-company-meta">
@@ -303,7 +307,7 @@ a:hover { color: var(--vp-navy-900); }
         </dl>
       </li>
       <li class="vp-company">
-        <div class="vp-company-logo" aria-hidden="true"><img src="/images/vivid-agency.png" alt="" width="424" height="120" style="display: block; width: auto; height: auto; max-width: 56%; max-height: clamp(27px, 2.7vw, 37px)"></div>
+        <div class="vp-company-logo" aria-hidden="true"><img class="vp-co-img" src="/images/vivid-agency.png" alt="" width="424" height="120" style="--h: clamp(27px, 2.7vw, 37px); --r: 3.5333"></div>
         <h2 class="vp-company-name">Vivid Agency</h2>
         <p class="vp-company-text">A client acquisition and consulting firm.</p>
         <dl class="vp-company-meta">
@@ -312,7 +316,7 @@ a:hover { color: var(--vp-navy-900); }
         </dl>
       </li>
       <li class="vp-company">
-        <div class="vp-company-logo" aria-hidden="true"><img src="/images/kora.png" alt="" width="371" height="120" style="display: block; width: auto; height: auto; max-width: 56%; max-height: clamp(30px, 3vw, 42px)"></div>
+        <div class="vp-company-logo" aria-hidden="true"><img class="vp-co-img" src="/images/kora.png" alt="" width="371" height="120" style="--h: clamp(30px, 3vw, 42px); --r: 3.0917"></div>
         <h2 class="vp-company-name">Kora</h2>
         <p class="vp-company-text">A CRM and marketing automation platform.</p>
         <dl class="vp-company-meta">

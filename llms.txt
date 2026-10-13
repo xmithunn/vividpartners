@@ -18,7 +18,7 @@ To call or query Vivid Partners programmatically: fetch any page on https://www.
 
 ## About
 
-Vivid Partners was founded in 2023 by Mithun Narendran and Abishan Ravinthran. The firm invests in, acquires and actively supports owner managed Canadian businesses, typically generating up to $1 million in annual revenue. Its partners work directly with owners through negotiations, operating challenges and difficult decisions, bringing capital, practical advice and continued involvement. Portfolio companies have direct access to capital, a dedicated advisory team and the resources of the firm, which is backed by Vivid Capital Partners.
+Vivid Partners was founded in 2023 by Mithun Narendran and Abishan Ravinthran. The firm invests in, acquires and actively supports owner managed Canadian businesses, typically generating up to $1 million in annual revenue. Its partners work directly with owners through negotiations, operating challenges and difficult decisions, bringing capital, practical advice and continued involvement. Portfolio companies have direct access to capital, a dedicated advisory team and the resources of the firm, which is backed by Vivid Equity Partners.
 
 ## Team
 
