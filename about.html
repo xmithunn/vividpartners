@@ -247,6 +247,10 @@ a:hover { color: var(--vp-navy-900); }
   .vp-news-link { font-size: 0.875rem; line-height: 1.45; padding: 4px 0; }
 }
 /* vp-phone2:end */
+/* vp-menu-fix:start */
+/* Keep the header (and the phone menu dropping out of it) above everything that follows on the page */
+.vp-hero-bg > div:first-child { position: relative; z-index: 50; }
+/* vp-menu-fix:end */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
 }
@@ -389,6 +393,31 @@ a:hover { color: var(--vp-navy-900); }
 </footer>
 </div>
 <script>
+function vpMenu() {
+  try {
+    if (typeof window === 'undefined') return null;
+    var menu = document.querySelector('.vp-menu');
+    if (!menu) return null;
+    var btn = menu.querySelector('summary');
+    function setOpen(on) { if (on) menu.setAttribute('open', ''); else menu.removeAttribute('open'); btn.setAttribute('aria-expanded', on ? 'true' : 'false'); }
+    function onBtn(e) { e.preventDefault(); setOpen(!menu.hasAttribute('open')); }
+    function onDoc(e) { if (menu.hasAttribute('open') && !menu.contains(e.target)) setOpen(false); }
+    function onLink(e) { if (e.target.closest('a')) setOpen(false); }
+    function onKey(e) { if (e.key === 'Escape' && menu.hasAttribute('open')) { setOpen(false); btn.focus(); } }
+    btn.setAttribute('aria-expanded', menu.hasAttribute('open') ? 'true' : 'false');
+    btn.addEventListener('click', onBtn);
+    menu.addEventListener('click', onLink);
+    document.addEventListener('click', onDoc);
+    document.addEventListener('keydown', onKey);
+    return function () {
+      btn.removeEventListener('click', onBtn); menu.removeEventListener('click', onLink);
+      document.removeEventListener('click', onDoc); document.removeEventListener('keydown', onKey);
+    };
+  } catch (err) {
+    return null;
+  }
+}
+
 function vpReveal() {
   try {
     if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return null;
@@ -434,6 +463,7 @@ function vpReveal() {
 }
 
 (function () {
+  vpMenu();
   vpReveal();
 })();
 </script>
