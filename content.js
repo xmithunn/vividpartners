@@ -4,62 +4,62 @@
 // Regenerate whenever page copy changes.
 export const PAGES = {
   "/": {
-    title: `Vivid Partners`,
+    title: `Vivid Partners | Strategic Advisory & Venture Operations`,
     markdown: `---
-title: Vivid Partners
+title: Vivid Partners | Strategic Advisory & Venture Operations
 url: https://www.vividpartners.ca/
-description: Vivid Partners is a privately held investment firm focused on acquiring and actively managing small and medium sized businesses. Established in 2023, Vivid Partners invests in, acquires and actively supports owner managed Canadian businesses, typically generating up to $1 million in annual revenue.
+description: Vivid Partners is a Toronto based boutique advisory firm focused on commercial strategy, business operations and venture development.
 ---
 
 # Invested in the people behind the business.
 
-With partnership, defy the expected.
+With partners, defy the expected.
 
 [Discover Vivid Partners](https://www.vividpartners.ca/about)
 
 News
 
-Vivid Partners Acquires Keyflow, a Productivity Software Startup Based in San Francisco
+Vivid Partners Works With Sales Talent Group on Commercial Strategy and Market Positioning
 
 ## Our focus
 
-We back founders and talented teams at every stage of growth, from startups to established industry leaders. Our work spans four sectors, with portfolio companies based in Toronto, San Francisco and London.
+Vivid Partners is a Toronto based boutique advisory firm focused on commercial strategy, business operations and venture development. We work alongside business owners and management teams to strengthen market positioning, refine business models and support strategic execution. Alongside our advisory engagements, we develop and operate select ventures with a long term approach to growth.
 
-Financial Services
+Strategic Advisory
 
-Healthcare
+Commercial Development
 
-Fintech
+Operational Strategy
 
-Real Estate
+Venture Operations
 
 ## How we work
 
-Backed by Vivid Capital Partners, our portfolio companies gain direct access to capital, dedicated advisory support and the resources of our firm. We stand behind every partnership, with our partners actively involved in strengthening operations, guiding critical decisions and supporting continued growth.
+Focused on building lasting value. Our work spans strategic advisory, venture operations and business development. We combine commercial judgment with direct involvement, supporting businesses through critical decisions and practical execution.
 
-### Dedicated advisory team
+### Commercial strategy
 
-Our portfolio companies have direct access to a dedicated advisory team with experience across a wide range of industries.
-
-[Team](https://www.vividpartners.ca/team)
-
-### Flexible vesting structures
-
-We design vesting and ownership structures around each transaction, keeping founders and management aligned with the company’s long-term growth.
+We work with owners on pricing, growth priorities and the commercial decisions that shape the business.
 
 [Approach](https://www.vividpartners.ca/approach)
 
-### Active ownership
+### Business positioning
 
-We support management on talent, pricing, operating systems and acquisitions.
+We help refine how a business presents its services, competes in its market and reaches its clients.
+
+[About](https://www.vividpartners.ca/about)
+
+### Operational systems
+
+We strengthen the systems, processes and reporting that support consistent execution.
+
+[Team](https://www.vividpartners.ca/team)
+
+### Venture development
+
+We develop and operate select ventures within our own group, with a long term approach to growth.
 
 [Portfolio](https://www.vividpartners.ca/portfolio)
-
-### Sector expertise
-
-Our investment decisions are informed by focused research in the sectors where we invest.
-
-[Insights](https://www.vividpartners.ca/insights)
 
 ## Insights
 
@@ -85,62 +85,69 @@ How buyers assess normalized earnings, apply valuation multiples and weigh the f
 
 [View all insights](https://www.vividpartners.ca/insights)
 
-## Building a company worth backing? We would like to hear from you.
+## Planning the next stage of your business? We would like to hear from you.
 
-Founders, management teams and advisers can reach our investment team directly.
+Business owners, management teams and advisers can reach our team directly.
 
 [Get in touch](mailto:info@vividpartners.ca)
 `,
   },
   "/portfolio": {
-    title: `Portfolio · Vivid Partners`,
+    title: `Businesses & Partnerships | Vivid Partners`,
     markdown: `---
-title: Portfolio · Vivid Partners
+title: Businesses & Partnerships | Vivid Partners
 url: https://www.vividpartners.ca/portfolio
-description: The Vivid Partners portfolio: Vivid Agency, Kora, and Keyflow. Businesses we've acquired and back with patient, long-term capital.
+description: Ventures developed and operated by Vivid Partners, including Vivid Agency and Athena, alongside businesses the firm supports through strategic and operational advisory, such as Sales Talent Group.
 ---
 
 Portfolio
 
-# Our portfolio companies.
+# Our businesses & partnerships.
 
-Businesses Vivid Partners has acquired and works alongside, in Toronto, San Francisco and London.
-
-## Keyflow
-
-A productivity software company.
-
-- **Sector:** Software
-- **Headquarters:** San Francisco, CA
+A selection of ventures developed and operated by Vivid Partners, alongside businesses we support through strategic and operational advisory.
 
 ## Vivid Agency
 
-A client acquisition and consulting firm.
+A consulting firm focused on client acquisition, commercial growth strategy and business infrastructure.
+[vividagency.ca](https://www.vividagency.ca)
 
 - **Sector:** Consulting
-- **Headquarters:** Toronto, ON
+- **Relationship:** Operating venture
 
-## Kora
+## Athena
 
-A CRM and marketing automation platform.
+An emerging technology venture focused on business management, automation and operational efficiency.
 
-- **Sector:** Software
-- **Headquarters:** London, UK
+- **Sector:** Technology
+- **Relationship:** Venture in development
+
+## Sales Talent Group
+
+A Canadian sales recruitment firm supported through commercial advisory, market positioning, service development and operational systems.
+
+- **Sector:** Recruitment
+- **Relationship:** Advisory relationship
+
+## Thinking about what comes next for your business?
+
+Reach our team directly for an early conversation.
+
+[Get in touch](mailto:info@vividpartners.ca)
 `,
   },
   "/team": {
-    title: `Team · Vivid Partners`,
+    title: `Team | Vivid Partners`,
     markdown: `---
-title: Team · Vivid Partners
+title: Team | Vivid Partners
 url: https://www.vividpartners.ca/team
-description: Meet the team behind Vivid Partners: co-founders Mithun Narendran and Abishan Ravinthran, COO Vathusan Udayakumaran, and equity research analyst Rathusan Udayakumaran.
+description: Meet the team behind Vivid Partners: co-founders Mithun Narendran and Abishan Ravinthran, COO Vathusan Udayakumaran, and analyst Rathusan Udayakumaran.
 ---
 
 Our Team
 
 # The people behind Vivid Partners.
 
-A Toronto-based team of investors and operators.
+A Toronto based team working across advisory and venture operations.
 
 ## Team members
 
@@ -149,119 +156,119 @@ A Toronto-based team of investors and operators.
 - **Role:** Co-Founder
 - **Location:** Toronto
 
-Mithun oversees the firm’s investments and acquisitions. His responsibilities include sourcing opportunities, evaluating businesses and working directly with owners throughout the investment process.
+Mithun leads commercial strategy, business development and client relationships at Vivid Partners. His work includes pricing, strategic partnerships and the development of the firm’s operating ventures.
 
-His background combines business ownership, advisory work and company operations. He remains involved following investment, working with founders and management teams on company strategy, operating performance and growth.
+He works directly with business owners on commercial priorities, market positioning and the execution of growth initiatives.
 
 ## Abishan Ravinthran
 
 - **Role:** Co-Founder
 - **Location:** Toronto
 
-Abishan leads the firm’s advisory work. His experience includes customer acquisition, growth planning and the management of business operations.
+Abishan oversees key aspects of client delivery and business operations, with a focus on customer acquisition, advertising strategy and execution.
 
-He works with owners and management teams to assess company performance, address operating challenges and implement improvements. His responsibilities extend across Vivid and its portfolio, supporting the continued management and growth of the firm’s businesses.
+He supports the firm’s advisory engagements and contributes to the management and development of its operating ventures.
 
 ### Education
 
-Abishan holds a Bachelor of Commerce in Finance from the University of Toronto.
+Abishan is a Bachelor of Commerce in Finance candidate at the University of Toronto.
 
 ## Vathusan Udayakumaran
 
 - **Role:** Chief Operating Officer
 - **Location:** Toronto
 
-Vathusan oversees Vivid Partners’ internal operations and supports operations across its portfolio companies. His responsibilities include company systems, reporting and the coordination of teams and resources.
+Vathusan supports internal operations, systems development and project coordination across the firm.
 
-He works with management to establish operating procedures, strengthen reporting and maintain clear accountability across the businesses Vivid supports.
+His responsibilities include strengthening workflows, coordinating resources and supporting the execution of operational priorities.
 
 ### Education
 
-Vathusan holds a Bachelor of Engineering in Mechanical Engineering from Toronto Metropolitan University.
+Vathusan is a Bachelor of Engineering in Mechanical Engineering candidate at Toronto Metropolitan University.
 
 ## Rathusan Udayakumaran
 
-- **Role:** Equity Research Analyst
+- **Role:** Analyst
 - **Location:** Toronto
 
-Rathusan supports Vivid Partners’ investment activities through company research, financial analysis and due diligence. He evaluates potential acquisitions by examining financial performance, industry conditions and competitive position.
+Rathusan supports Vivid Partners through market and business research, financial analysis and project support.
 
-His research informs the firm’s assessment of investment opportunities, with particular attention to business fundamentals, growth prospects and risk.
+His research supports the firm’s advisory engagements and the development of its ventures, with particular attention to business fundamentals, market conditions and risk.
 
 ### Education
 
-Rathusan holds an Honours Bachelor of Commerce in Business Management, majoring in Real Estate Management, from Toronto Metropolitan University.
+Rathusan is an Honours Bachelor of Commerce candidate in Business Management, majoring in Real Estate Management, at Toronto Metropolitan University.
 `,
   },
   "/approach": {
-    title: `Approach · Vivid Partners`,
+    title: `Approach | Vivid Partners`,
     markdown: `---
-title: Approach · Vivid Partners
+title: Approach | Vivid Partners
 url: https://www.vividpartners.ca/approach
-description: How Vivid Partners works with the businesses it backs: capital, a dedicated advisory team, flexible deal structures and a clear process from introduction to closing.
+description: How Vivid Partners works with businesses: strategic advisory, commercial positioning, operational development and venture operations, from understanding the business to continued partnership.
 ---
 
 Approach
 
-# How we partner with the businesses we back.
+# An approach built around the business.
 
-Capital, advisory support and deal structures shaped around each business.
+We approach each engagement with an emphasis on understanding the business, identifying commercial priorities and supporting their execution.
 
 ## How we work
 
-### Dedicated advisory team
+Our involvement is shaped by the needs of the company, whether through strategic advisory, operational support or venture development.
 
-Our portfolio companies have direct access to a dedicated advisory team with experience across a wide range of industries.
+### Strategic advisory
 
-### Flexible vesting structures
+Support on critical decisions, commercial planning and the market opportunities in front of the business.
 
-We design vesting and ownership structures around each transaction, keeping founders and management aligned with the company’s long-term growth.
+### Commercial positioning
 
-### Active ownership
+Work on business models, positioning, services and routes to market.
 
-We support management on talent, pricing, operating systems and acquisitions.
+### Operational development
 
-### Sector expertise
+The systems, processes and structures a business needs to execute consistently.
 
-Our investment decisions are informed by focused research in the sectors where we invest.
+### Venture operations
+
+Developing and operating businesses within our own group, with a long term approach to growth.
 
 ## What to expect
 
-A typical transaction with Vivid Partners moves through four stages.
+A typical engagement with Vivid Partners moves through four stages.
 
 01
 
-### Introduction
+### Understanding the business
 
-A confidential first conversation about your business, your goals and whether a partnership makes sense.
+A confidential first conversation about the business, its position and the priorities of its owners.
 
 02
 
-### Letter of intent
+### Strategic assessment
 
-If there is a fit, we set out proposed terms, including valuation, structure and timing.
+A review of the business model, market position and operations to identify the commercial priorities that matter most.
 
 03
 
-### Due diligence
+### Execution and implementation
 
-A review of financial records, contracts and operations, typically completed over six to twelve weeks.
+We work alongside owners and management to put agreed priorities into practice, from positioning and pricing to systems and processes.
 
 04
 
-### Closing and transition
+### Continued partnership
 
-We complete the transaction and agree a transition plan with founders and management.
+We stay involved as the business develops, reviewing progress and adjusting priorities as conditions change.
 
-## Where we invest
+## Sectors we work in
 
-Financial Services
+Consulting
 
-Healthcare
+Recruitment
 
-Fintech
-
-Real Estate
+Technology
 
 ## Thinking about what comes next for your business?
 
@@ -271,48 +278,58 @@ Reach our team directly for an early conversation.
 `,
   },
   "/about": {
-    title: `About · Vivid Partners`,
+    title: `About | Vivid Partners`,
     markdown: `---
-title: About · Vivid Partners
+title: About | Vivid Partners
 url: https://www.vividpartners.ca/about
-description: Vivid Partners is a Toronto private investment firm founded in 2023 that invests in, acquires and supports owner managed Canadian businesses.
+description: Vivid Partners is a Toronto based boutique advisory firm, established in 2024, focused on commercial strategy, business operations and venture development.
 ---
 
 About
 
-# A Toronto-based private investment firm.
+# An independent firm with an operating perspective.
 
-Vivid Partners acquires and builds businesses, working alongside the founders and management teams who run them.
+Vivid Partners is a Toronto based boutique advisory firm focused on commercial strategy, business operations and venture development.
 
 ## Who we are
 
-Vivid Partners was founded in 2023 by Mithun Narendran and Abishan Ravinthran. We know firsthand what it takes to build a business with limited resources. We started Vivid to give entrepreneurs the backing we wanted when we were starting out.
+Our work combines strategic advisory with direct involvement in the development and operation of businesses. We advise select companies on positioning, commercial opportunities and operational challenges while overseeing ventures within our own group.
 
-Many small and medium-sized businesses operate with limited access to capital and strategic resources. We invest in, acquire and actively support owner-managed Canadian businesses, typically generating up to $1 million in annual revenue.
+Our approach is grounded in practical execution, close relationships with business owners and a long term view of enterprise development.
 
-Our partners work directly with owners through negotiations, operating challenges and difficult decisions. We bring capital, practical advice and continued involvement to help entrepreneurs protect their interests and build from a stronger position.
+Beyond our existing ventures and advisory relationships, Vivid Partners intends to expand through the development of new businesses and selective acquisition opportunities.
 
-- **Founded:** 2023
-- **Headquarters:** Toronto, Ontario
-- **Portfolio companies:** Keyflow, Vivid Agency and Kora
-- **Portfolio locations:** Toronto, San Francisco and London
+- **Founded:** 2024
+- **Based in:** Toronto, Ontario
+- **Ventures:** Vivid Agency, with Athena in development
+- **Advisory relationship:** Sales Talent Group
 
 ## Leadership
 
 [Meet the team](https://www.vividpartners.ca/team)
 
-- Mithun Narendran Co-Founder
-- Abishan Ravinthran Co-Founder
-- Vathusan Udayakumaran Chief Operating Officer
-- Rathusan Udayakumaran Equity Research Analyst
+Mithun Narendran
 
-## Our office
+Co-Founder
 
-Address
+Abishan Ravinthran
 
-150 King St W, Suite 3500, Toronto, ON M5K 1K7
+Co-Founder
 
-[Get directions](https://www.google.com/maps/search/?api=1&query=150+King+St+W+Toronto+ON+M5K+1K7)
+Vathusan Udayakumaran
+
+Chief Operating Officer
+
+Rathusan Udayakumaran
+
+Analyst
+
+## Contact
+
+Mailing address
+
+150 King St W, Suite 3500
+Toronto, ON M5K 1K7
 
 Email
 
@@ -320,9 +337,9 @@ Email
 `,
   },
   "/insights": {
-    title: `Insights · Vivid Partners`,
+    title: `Insights | Vivid Partners`,
     markdown: `---
-title: Insights · Vivid Partners
+title: Insights | Vivid Partners
 url: https://www.vividpartners.ca/insights
 description: Guides for business owners from Vivid Partners on selling a business in Ontario, valuation, holding companies and succession planning.
 ---
@@ -331,21 +348,21 @@ Insights
 
 # Guides and notes for business owners.
 
-Practical reading on selling, valuation and succession, plus notes on how we work.
+Practical reading on selling, valuation and succession planning for business owners.
 
 ## Guides
 
 Written for owners weighing a sale, a succession plan or a long-term partner.
 
-[Start here How to sell your business in Ontario: a founder’s guide A step-by-step overview of selling a privately held business in Ontario, from preparing financial records through due diligence and closing. Read the guide](https://www.vividpartners.ca/selling-your-business-in-ontario)
+- [Start here How to sell your business in Ontario: a founder’s guide A step-by-step overview of selling a privately held business in Ontario, from preparing financial records through due diligence and closing. Read the guide](https://www.vividpartners.ca/selling-your-business-in-ontario)
 
-[Fundamentals What is a holding company? How holding companies differ from venture capital and private equity, and why founders choose them as long-term owners. Read more](https://www.vividpartners.ca/what-is-a-holding-company)
+- [Fundamentals What is a holding company? How holding companies differ from venture capital and private equity, and why founders choose them as long-term owners. Read more](https://www.vividpartners.ca/what-is-a-holding-company)
 
-[Selling Selling to a holding company vs. private equity A comparison of deal structure, leverage, hold periods and post-closing outcomes for founders weighing two types of financial buyer. Read more](https://www.vividpartners.ca/holding-company-vs-private-equity)
+- [Selling Selling to a holding company vs. private equity A comparison of deal structure, leverage, hold periods and post-closing outcomes for founders weighing two types of financial buyer. Read more](https://www.vividpartners.ca/holding-company-vs-private-equity)
 
-[Valuation How small businesses are actually valued How buyers assess normalized earnings, apply valuation multiples and weigh the factors that move price in the lower middle market. Read more](https://www.vividpartners.ca/how-small-businesses-are-valued)
+- [Valuation How small businesses are actually valued How buyers assess normalized earnings, apply valuation multiples and weigh the factors that move price in the lower middle market. Read more](https://www.vividpartners.ca/how-small-businesses-are-valued)
 
-[Succession Succession planning for Canadian business owners An overview of family succession, management buyouts and third-party sales, and the planning horizon each one requires. Read more](https://www.vividpartners.ca/succession-planning-canada)
+- [Succession Succession planning for Canadian business owners An overview of family succession, management buyouts and third-party sales, and the planning horizon each one requires. Read more](https://www.vividpartners.ca/succession-planning-canada)
 
 ## Thinking about what comes next for your business?
 
@@ -418,15 +435,21 @@ Be honest with yourself about how long you’re willing to stay and in what role
 
 Price matters, but so does what happens to the thing you built. Strategic buyers often fold the company into their own operations; financial buyers vary from quick-flip models to long-term holds. Ask any buyer three questions:
 
-1. What happened to the last three businesses you bought?
-2. Who from those teams is still there?
-3. What do you plan to change in year one?
+- What happened to the last three businesses you bought?
+- Who from those teams is still there?
+- What do you plan to change in year one?
 
 The answers tell you more than the pitch deck does.
 
 This article is general information, not legal, tax, or financial advice. Talk to your lawyer and accountant before signing anything.
 
 [All insights and notes](https://www.vividpartners.ca/insights)
+
+## Thinking about what comes next for your business?
+
+Reach our team directly for an early conversation.
+
+[Get in touch](mailto:info@vividpartners.ca)
 `,
   },
   "/what-is-a-holding-company": {
@@ -445,7 +468,7 @@ How holding companies differ from venture capital and private equity, and why fo
 
 A holding company is a business whose business is owning other businesses. It doesn’t manufacture anything or serve customers directly; it acquires stakes in operating companies (often controlling ones) and holds them, usually with no plan to sell.
 
-Berkshire Hathaway is the famous version of the model. Vivid Partners takes a related approach at a smaller scale, as a private investment firm: acquiring and actively managing owner-managed private businesses for the long term.
+Berkshire Hathaway is the famous version of the model. This guide describes holding companies in general terms. Vivid Partners itself is a boutique advisory firm that develops and operates its own ventures. Selective acquisitions are part of its long term direction rather than its current business.
 
 ## How it differs from a VC fund
 
@@ -471,7 +494,7 @@ Three practical differences show up at the negotiating table:
 
 Because the hold is long, the bar is durability rather than hypergrowth: businesses with real profits, customers who come back, and a reason they’ll still matter in ten years.
 
-At Vivid Partners we focus on owner-managed small and medium-sized Canadian businesses: businesses where the model is proven and what’s needed is capital, operating support, and patience rather than reinvention.
+Many holding companies focus on owner-managed small and medium-sized businesses: businesses where the model is proven and what’s needed is capital, operating support, and patience rather than reinvention.
 
 ## The honest trade-offs
 
@@ -482,6 +505,12 @@ The model fits best when a founder wants a fair price, a fast clean process, and
 This article is general information, not legal, tax, or financial advice. Talk to your lawyer and accountant before signing anything.
 
 [All insights and notes](https://www.vividpartners.ca/insights)
+
+## Thinking about what comes next for your business?
+
+Reach our team directly for an early conversation.
+
+[Get in touch](mailto:info@vividpartners.ca)
 `,
   },
   "/holding-company-vs-private-equity": {
@@ -538,11 +567,17 @@ Holding company offers tend toward simpler structures (more certainty at close, 
 
 Neither model is virtuous or villainous. They’re different tools. If your goal is the biggest possible number and you’re comfortable with the company being resold, a well-run PE process is a fine path.
 
-If your goal is a fair price, a fast close, and a business that still looks like itself in a decade, that’s the profile a long-term, hands-on acquirer like [Vivid Partners](https://www.vividpartners.ca/) is built for.
+If your goal is a fair price, a fast close, and a business that still looks like itself in a decade, a long-term, hands-on holding company is usually the closer fit.
 
 This article is general information, not legal, tax, or financial advice. Talk to your lawyer and accountant before signing anything.
 
 [All insights and notes](https://www.vividpartners.ca/insights)
+
+## Thinking about what comes next for your business?
+
+Reach our team directly for an early conversation.
+
+[Get in touch](mailto:info@vividpartners.ca)
 `,
   },
   "/how-small-businesses-are-valued": {
@@ -609,6 +644,12 @@ The market price of a business, like anything else, is what a real buyer with re
 This article is general information, not legal, tax, or financial advice. Talk to your lawyer and accountant before signing anything.
 
 [All insights and notes](https://www.vividpartners.ca/insights)
+
+## Thinking about what comes next for your business?
+
+Reach our team directly for an early conversation.
+
+[Get in touch](mailto:info@vividpartners.ca)
 `,
   },
   "/succession-planning-canada": {
@@ -643,7 +684,7 @@ MBOs preserve culture better than almost any other path, but understand that a h
 
 ## Door three: sell the company
 
-An outside sale (to a competitor, a strategic acquirer, or a financial buyer such as a [holding company](https://www.vividpartners.ca/what-is-a-holding-company)) is how most successful exits actually happen. It usually produces the best price and the cleanest break, and buyers like Vivid Partners exist specifically for owners who want the business to continue as itself, with the team intact, after they step back.
+An outside sale (to a competitor, a strategic acquirer, or a financial buyer such as a [holding company](https://www.vividpartners.ca/what-is-a-holding-company)) is how most successful exits actually happen. It usually produces the best price and the cleanest break, and some buyers, such as long-term holding companies, focus specifically on owners who want the business to continue as itself, with the team intact, after they step back.
 
 The trade-off is that a sale process takes real preparation; our guide to [selling a business in Ontario](https://www.vividpartners.ca/selling-your-business-in-ontario) covers that arc in detail.
 
@@ -661,17 +702,23 @@ Owners who start at 55 choose their exit; owners who start after a health scare 
 
 A real succession plan is not a binder. It’s a page that answers five questions:
 
-1. Who takes over in each scenario, including the emergency one?
-2. What is the business roughly worth today, and what do you need it to be worth?
-3. Which door are you aiming for?
-4. What has to be true for that door to open?
-5. Who are your advisors?
+- Who takes over in each scenario, including the emergency one?
+- What is the business roughly worth today, and what do you need it to be worth?
+- Which door are you aiming for?
+- What has to be true for that door to open?
+- Who are your advisors?
 
 Write it down, share it with your family and your accountant, and revisit it yearly. The owners who do this sell on their own terms; the ones who don’t, sell on someone else’s.
 
 This article is general information, not legal, tax, or financial advice. Talk to your lawyer and accountant before signing anything.
 
 [All insights and notes](https://www.vividpartners.ca/insights)
+
+## Thinking about what comes next for your business?
+
+Reach our team directly for an early conversation.
+
+[Get in touch](mailto:info@vividpartners.ca)
 `,
   },
   "/disclosures": {
@@ -700,9 +747,9 @@ Content on the Site, including our Insights guides and notes, is general in natu
 
 Using the Site, contacting us or receiving information from us does not create a client, advisory or fiduciary relationship between you and Vivid Partners. Please do not send us confidential business information until a confidentiality agreement is in place.
 
-## 4. Portfolio companies
+## 4. Ventures and advisory relationships
 
-References to portfolio companies describe businesses in which Vivid Partners holds or has held an interest. They are provided for illustration and may not include every investment we have made. Portfolio companies operate as separate businesses, and their names, logos and trademarks belong to their respective owners. A reference to any company is not a recommendation and does not indicate future results.
+References to businesses on the Site describe ventures that Vivid Partners operates or is developing, and businesses it supports through advisory engagements. They are provided for illustration and may not include every business we work with. Each operates as a separate business, and their names, logos and trademarks belong to their respective owners. A reference to any company is not a recommendation and does not indicate future results.
 
 ## 5. Past performance and forward-looking statements
 
@@ -718,7 +765,7 @@ The Site may include information from third-party sources and links to third-par
 
 ## 8. Conflicts of interest
 
-Members of the Vivid Partners team may hold personal interests in, or serve as directors or officers of, portfolio companies. We seek to identify and manage conflicts of interest appropriately.
+Members of the Vivid Partners team may hold personal interests in, or serve as directors or officers of, businesses referenced on the Site. We seek to identify and manage conflicts of interest appropriately.
 
 ## 9. Contact
 
@@ -737,7 +784,7 @@ description: How Vivid Partners collects, uses, and protects your information.
 
 Effective as of February 5, 2026.
 
-Vivid Partners (“**we**,” “**us**” or “**our**”) is a private investment firm based in Toronto, Ontario. This Privacy Policy describes how Vivid Partners processes personal information that we collect through our digital or online properties or services that link to this Privacy Policy (including our website and social media pages), as well as our marketing activities, events and other activities described in this Privacy Policy (collectively, the “**Service**”).
+Vivid Partners (“**we**,” “**us**” or “**our**”) is a boutique advisory firm based in Toronto, Ontario. This Privacy Policy describes how Vivid Partners processes personal information that we collect through our digital or online properties or services that link to this Privacy Policy (including our website and social media pages), as well as our marketing activities, events and other activities described in this Privacy Policy (collectively, the “**Service**”).
 
 ## Personal information we collect
 
@@ -924,7 +971,7 @@ Nothing on the Site is an offer to sell, or a solicitation of an offer to buy, a
 
 ## 6. Limitation of Liability
 
-TO THE MAXIMUM EXTENT PERMITTED BY LAW: (A) VIVID PARTNERS AND ITS SUPPLIERS WILL NOT BE LIABLE FOR ANY LOST PROFITS, LOST DATA, COSTS OF SUBSTITUTE PRODUCTS, OR ANY INDIRECT, CONSEQUENTIAL, INCIDENTAL, SPECIAL, EXEMPLARY, OR PUNITIVE DAMAGES ARISING FROM OR RELATED TO THESE TERMS OR YOUR USE OF (OR INABILITY TO USE) THE SITE; AND (B) OUR TOTAL LIABILITY TO YOU FOR ANY CLAIM ARISING UNDER THESE TERMS IS CAPPED AT $50 CAD. THE EXISTENCE OF MULTIPLE CLAIMS DOES NOT INCREASE THIS CAP.
+TO THE MAXIMUM EXTENT PERMITTED BY LAW: (A) VIVID PARTNERS AND ITS SUPPLIERS WILL NOT BE LIABLE FOR ANY LOST PROFITS, LOST DATA, COSTS OF SUBSTITUTE PRODUCTS, OR ANY INDIRECT, CONSEQUENTIAL, INCIDENTAL, SPECIAL, EXEMPLARY, OR PUNITIVE DAMAGES ARISING FROM OR RELATED TO THESE TERMS OR YOUR USE OF (OR INABILITY TO USE) THE SITE; AND (B) OUR TOTAL LIABILITY TO YOU FOR ANY CLAIM ARISING UNDER THESE TERMS IS CAPPED AT $50 CAD. THE EXISTENCE OF MULTIPLE CLAIMS DOES NOT INCREASE THIS CAP.
 
 ## 7. Term and Termination
 
@@ -944,7 +991,7 @@ These Terms remain in effect while you use the Site. We may suspend or terminate
 
 **8.6 Entire Agreement.** These Terms (together with the Privacy Policy and any other policies or guidelines referenced herein) are the entire agreement between you and Vivid Partners regarding your use of the Site. If any provision of these Terms is found to be invalid or unenforceable, it will be modified to the minimum extent necessary to be valid, and the remaining provisions will continue in effect. Our failure to enforce any provision is not a waiver of that provision. The word “including” means “including without limitation.” You may not assign these Terms without our prior written consent; we may assign them freely. These Terms bind any permitted assignees.
 
-**8.7 Copyright and Trademarks.** Copyright © 2027 Vivid Partners. All rights reserved. All trademarks, logos, and service marks displayed on the Site are owned by Vivid Partners or third parties. You may not use any of them without prior written consent from the owner.
+**8.7 Copyright and Trademarks.** Copyright © 2026 Vivid Partners. All rights reserved. All trademarks, logos, and service marks displayed on the Site are owned by Vivid Partners or third parties. You may not use any of them without prior written consent from the owner.
 
 **8.8 Contact Information.** Vivid Partners, 150 King St W, Suite 3500, Toronto, ON M5K 1K7. Email: [info@vividpartners.ca](mailto:info@vividpartners.ca).
 
