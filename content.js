@@ -23,7 +23,7 @@ Athena, a Business Management and Automation Venture, Is in Development at Vivid
 
 ## Our focus
 
-Vivid Partners is an independent advisory firm based in Toronto. We advise a select group of companies across sectors on strategy, commercial positioning and operational execution, and apply the same discipline to the ventures we build and operate ourselves.
+Vivid Partners is an independent advisory firm based in Toronto. We partner with high-calibre businesses across industries, delivering strategic counsel, commercial insight and operational execution that create lasting enterprise value.
 
 Strategic Advisory
 
